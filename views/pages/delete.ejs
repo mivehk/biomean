@@ -1,0 +1,29 @@
+<!--<script type="text/javascript" src="./../../dele.js" defer ></script>-->
+
+<section class="ugly"> 
+     <div class="fields">      
+      <h1><label>Name of customer: </label><%= clu2.cuName %></h1>
+      <div class="cID"><%= clu2._id %></div>  
+      <div><label>Number of Nodes: </label><%= clu2.numNodes %></div>
+      <div><label>Number of diskgroups: </label><%=  clu2.numDiskgroups %></div>
+      <div><label>Number of capacity disks: </label><%=  clu2.numCapdisks %></div>
+      <div><label>Size of capacity disks: </label><%=  clu2.ssdSize %></div>
+      <div><label>Storage policy: </label><%=  clu2.FTM2[1] %></div>
+      <div><lable>Raw Capacity: </lable><%= clu2.rawCap %></div>  
+      <div><lable>SPBM Capacity: </lable><%= clu2.spbmCap %></div> <hr/> 
+       <svg  
+     class= <% if (clu2.isFavorite == true ){ %> "favorite is-fav" <%} else {%> "favorite" <%} %>  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34"> 
+         <path d="M12 9.229c.234-1.12 1.547-6.229 5.382-6.229 2.22 0 4.618 1.551 4.618 5.003 0 3.907-3.627 8.47-10 12.629-6.373-4.159-10-8.722-10-12.629 0-3.484 2.369-5.005 4.577-5.005 3.923 0 5.145 5.126 5.423 6.231zm-12-1.226c0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-7.962-9.648-9.028-12-3.737-2.338-5.262-12-4.27-12 3.737z" 
+          /> 
+          </svg> </div>     
+        
+    <vsan-form method="post" action="/layout/<%= clu2._id%>">
+             <a class="update"  href="/" > Back to Main Page </a > 
+      <!--<script type="text/javascript" src="./../../server2.js" defer></script>-->
+            <!--<input type="hidden" name="_method" value="delete"/>-->   
+            <a  id="dele" class="delete" href="/delete/<%= clu2._id%>" > Surely Delete </a>     
+    <!--<vsan-form2 method="post" action="./../../server.js"> -->
+            <!--<button  id="upda" class="update" type="submit" > Update </button>  -->  
+      </vsan-form>  
+    <!--</vsan-form> -->   
+</section>   

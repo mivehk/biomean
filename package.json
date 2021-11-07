@@ -1,0 +1,40 @@
+{
+  "name": "biomean",
+  "version": "1.0.0",
+  "description": "This app tracks some of basic metabolic values",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon ./server.js --exec babel-node -e js",
+    "debug": "DEBUG=express:* nodemon ./server.js --exec babel-node -e js ",
+    "start2": "nodemon ./server2.js --exec babel-node -e js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mivehk/biomean.git"
+  },
+  "author": "Kayvan Mivehnejad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mivehk/biomean.git/issues"
+  },
+  "homepage": "https://github.com/mivehk/biomean.git#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "braces": "^3.0.2",
+    "core-js": "^3.6.4",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "http-server": "^0.12.1",
+    "minimist": "^1.2.5",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.4",
+    "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^6.8.0"
+  }
+}

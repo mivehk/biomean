@@ -1,0 +1,35 @@
+ 
+  <section class="ugly-u"> 
+     <div class="fields-u">      
+      <label>Name of customer: </label><input type='text' name='cuName' id='cuName'></input><br/><label class="oldval">Old Value=  </label><%= uclu.cuName %><br/>
+      <div class="cID"><%= uclu._id %></div>  
+      <label>Number of Nodes: </label><input type="number" name="numNodes" id="numNodes" ><br/><label class="oldval">Old Value=  </label><%= uclu.numNodes %></input><br/>
+      <label>Number of diskgroups: </label><input type="number" name="numDiskgroups" id="numDiskgroups" size='4' ><br/><label class="oldval">Old Value=  </label><%=  uclu.numDiskgroups %></input><br/>
+      <label>Number of capacity disks: </label><input type="number" name="numCapdisks" id="numCapdisks" size='4'><br/><label class="oldval">Old Value=  </label><%=  uclu.numCapdisks %></input><br/>
+      <label>Size of capacity disks(GB): </label><input type="number" name="ssdSize" id="ssdSize" ><br/><label class="oldval">Old Value=  </label><%=  uclu.ssdSize %></input><br/>
+      <label>Storage policy: </label>
+      <select name="FTM" id="FTM" ><br/>
+        <option name="FTT-0" value="1,SFTT0"> FTT0</option>   
+        <option name="FTT-1" value="0.5,SFTT1"> FTT1 </option>                    
+        <option name="FTT-2" value="0.333,SFTT2"> FTT2 </option>           
+        <option name="FTT-3"value="0.25,SFTT3"> FTT3 </option>          
+        <option name="FTT-RAID5" value="0.75,FTM5-SFTT1"> FTM5-FTT1 </option>           
+        <option name="FTT-RAID6" value="0.67,FTM6-SFTT2"> FTM6-FTT2 </option>                  
+    </select> <br/>
+    <label class="oldval">Old Value=  </label><%=  uclu.FTM2[1] %><br/>
+      <input type="hidden" id="rawCap" name="rawCap"></input><br/>
+      <input type="hidden" id="spbmCap" name="spbmCap"></input> <br/>
+       <svg  
+     class= <% if (uclu.isFavorite == true ){ %> "favorite is-fav" <%} else {%> "favorite" <%} %>  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34"> 
+         <path d="M12 9.229c.234-1.12 1.547-6.229 5.382-6.229 2.22 0 4.618 1.551 4.618 5.003 0 3.907-3.627 8.47-10 12.629-6.373-4.159-10-8.722-10-12.629 0-3.484 2.369-5.005 4.577-5.005 3.923 0 5.145 5.126 5.423 6.231zm-12-1.226c0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-7.962-9.648-9.028-12-3.737-2.338-5.262-12-4.27-12 3.737z" 
+          /> 
+          </svg>
+         </div> 
+      <vsan-form method="" action="" >
+          <a class="update" href="/" > Back To Main Page </a> 
+          <a class="update" href="/update/<%= uclu._id %>"> Update</a>       
+     </vsan-form>
+  
+    
+</section>   
+

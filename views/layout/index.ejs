@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="us">
+<head>
+<meta charset="utf-8"/>
+<title>Tech With Art </title> 
+<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+</head>
+<body>
+    <p id='start'>This app tracks some basic Metabolic values </p>
+    <!--<script src='./index.js' defer ></script> -->
+    <form class='w' method="post" action="" > 
+        <ul>
+        <li>
+        Name of Patient: <input type='text' name='cuName' id='cuName' /><br/>
+        <!--<div *ngIf="form.get('cuName').hasError('pattern')" class="error"> CustomerName is mandatory</div>-->
+        </li>
+        <li>
+        Number of nodes: <input type="number" name="numNodes" id="numNodes" /><br/>
+        </li>
+        <li>
+        Number of Disk groups: <input type="number" name="numDiskgroups" id="numDiskgroups" size='4' /><br/>
+        </li>
+        <li>
+        Number of capacity disks: <input type="number" name="numCapdisks" id="numCapdisks" size='4' /><br/>
+        </li>
+        <li>
+        Size of SSD (GB): <input type="number" name="ssdSize" id="ssdSize" /><br/>
+        <!--<div *ngIf="form.get('ssdSize').hasError('ssdsize')" class="error"> SSD Size must be between 500 and 62000 </div>-->
+        </li>
+        <li>
+        Storage Policy: <select name="FTM" id="FTM" ><br/>
+            <option name="FTT-0" value="1,SFTT0"> FTT-0</option>   
+            <option name="FTT-1" value="0.5,SFTT1"> FTT-1 </option>                    
+            <option name="FTT-2" value="0.333,SFTT2"> FTT-2 </option>           
+            <option name="FTT-3"value="0.25,SFTT3"> FTT-3 </option>          
+            <option name="FTT-RAID5" value="0.75,FTM5-SFTT1"> FTT-RAID5 </option>           
+            <option name="FTT-RAID6" value="0.67,FTM6-SFTT2"> FTT-RAID6 </option>                  
+        </select><br/>	
+        </li>
+        <li>
+        14th Gen: <input type='checkbox' id='isFavorite' name='isFavorite' /><br/>	
+        </li>
+        <li>
+             <input type="hidden" name="rawCap" id="rawCap" /><br/>
+        </li>
+        <li>
+             <input type="hidden" name="spbmCap" id="spbmCap" /><br/>
+        </li>
+        <li>
+            <input type="hidden" name="FTM2" id="FTM2" /><br/>
+       </li>
+        <li>
+        <button type="submit" id="submit" > Save </button><br/>	
+        </li>     
+    </ul>
+    </form><br/>
+
+    <%- include(`../pages/${template}`) %>
+ 
+
+</body>
+</html>

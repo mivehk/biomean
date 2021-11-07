@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-import ClusterSchema  from "../models/vsanModel.js";
+import PatientsSchema  from "../models/biomeanModel.js";
 //import path from "path";
 
-const Cluster = mongoose.model("Cluster" , ClusterSchema);
+const Cluster = mongoose.model("Cluster" , PatientsSchema);
 
 export const getClusters = (req,res) =>{
     
@@ -23,9 +23,9 @@ export const getClusters = (req,res) =>{
 export const addNewCluster = (req,res) =>{
 	//let newCluster = new Cluster(req.body);
 
-	if (req.body.isFavorite){
-		req.body.isFavorite =true;
-		console.log("14th post getting started");
+	if (req.body.atrialFibrillation){
+		req.body.atrialFibrillation =true;
+		console.log("patient with AF post getting started");
 		let newCluster = new Cluster(req.body);
 		//}
 		
@@ -37,8 +37,8 @@ export const addNewCluster = (req,res) =>{
 			res.redirect("/");
 		});
 	} else { 
-		req.body.isFavorite = false ;
-		console.log("13th post getting started");
+		req.body.atrialFibrillation = false ;
+		console.log("patient without AF post getting started");
 		let new2Cluster = new Cluster(req.body); 
 		new2Cluster.save((err, cluster) => {
 			if (err) {

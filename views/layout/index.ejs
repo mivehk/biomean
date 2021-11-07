@@ -2,32 +2,35 @@
 <html lang="us">
 <head>
 <meta charset="utf-8"/>
-<title>Tech With Art </title> 
+<title>For my mother </title> 
 <link rel="stylesheet" type="text/css" href="/css/index.css"/>
 </head>
 <body>
-    <p id='start'>This app tracks some basic Metabolic values </p>
+    <p id='start'>This page collects targeted Metabolic Panels </p>
     <!--<script src='./index.js' defer ></script> -->
     <form class='w' method="post" action="" > 
         <ul>
         <li>
-        Name of Patient: <input type='text' name='cuName' id='cuName' /><br/>
+        Patient's Name: <input type='text' name='patientName' id='patientName' /><br/>
         <!--<div *ngIf="form.get('cuName').hasError('pattern')" class="error"> CustomerName is mandatory</div>-->
         </li>
         <li>
-        Number of nodes: <input type="number" name="numNodes" id="numNodes" /><br/>
+        Patient's number: <input type="text" name="patientNumber" id="patientNumber" /><br/>
         </li>
         <li>
-        Number of Disk groups: <input type="number" name="numDiskgroups" id="numDiskgroups" size='4' /><br/>
+        Date of test: <input type="date" name="testDate" id="testDate"  /><br/>
         </li>
         <li>
-        Number of capacity disks: <input type="number" name="numCapdisks" id="numCapdisks" size='4' /><br/>
+        eGFR: <input type="number" step="0.01" name="eGfr" id="eGfr" /><br/>
         </li>
         <li>
-        Size of SSD (GB): <input type="number" name="ssdSize" id="ssdSize" /><br/>
+        glucose <input type="number" name="glucose" id="glucose" /><br/>    
+        </li>
+        <li>
+        Creatinine (mg/dl): <input type="number" step="0.01" name="creatinine" id="creatinine" /><br/>
         <!--<div *ngIf="form.get('ssdSize').hasError('ssdsize')" class="error"> SSD Size must be between 500 and 62000 </div>-->
         </li>
-        <li>
+        <!--<li>
         Storage Policy: <select name="FTM" id="FTM" ><br/>
             <option name="FTT-0" value="1,SFTT0"> FTT-0</option>   
             <option name="FTT-1" value="0.5,SFTT1"> FTT-1 </option>                    
@@ -36,27 +39,22 @@
             <option name="FTT-RAID5" value="0.75,FTM5-SFTT1"> FTT-RAID5 </option>           
             <option name="FTT-RAID6" value="0.67,FTM6-SFTT2"> FTT-RAID6 </option>                  
         </select><br/>	
+        </li> --->
+        <li>
+        History of Atrial Fibrillation: <input type='checkbox' id='atrialFibrillation' name='atrialFibrillation' /><br/>	
         </li>
         <li>
-        14th Gen: <input type='checkbox' id='isFavorite' name='isFavorite' /><br/>	
-        </li>
-        <li>
-             <input type="hidden" name="rawCap" id="rawCap" /><br/>
+             <input type="hidden" name="creatinineMicromole" id="creatinineMicromole" /><br/>
         </li>
         <li>
              <input type="hidden" name="spbmCap" id="spbmCap" /><br/>
         </li>
-        <li>
-            <input type="hidden" name="FTM2" id="FTM2" /><br/>
-       </li>
+       
         <li>
         <button type="submit" id="submit" > Save </button><br/>	
         </li>     
     </ul>
     </form><br/>
-
-    <%- include(`../pages/${template}`) %>
- 
-
+    <%- include(`../pages/${template}`); %>
 </body>
 </html>

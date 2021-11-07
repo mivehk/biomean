@@ -1,14 +1,15 @@
 //using babel allows latest ES6 syntax instead of old "require" method of adding classes
 
 import express from "express";
-import routes from "./routes/vsanRoutes.js";
+import routes from "./routes/biomeanRoutes.js";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import path from "path";
 
-/*these lines are added in this version to comply with changes
- applied in ES vs CS for old variables such as __dirname to work*/
-import {fileURLToPath} from 'url';
+/* these lines are added to comply with changes
+ applied in ES vs CS for old variables such as __dirname to work */
+
+ import {fileURLToPath} from 'url';
 import {dirname} from 'path';
 
 const __filename=fileURLToPath(import.meta.url);
@@ -34,7 +35,7 @@ const PORT = 6969;
 //mongoose connection
 //waiting for result when connecting to mongoDB
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/vsandb",{
+mongoose.connect("mongodb://localhost/biomeandb",{
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 }

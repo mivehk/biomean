@@ -1,4 +1,4 @@
-import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster } from "../src/controllers/vsanController.js";
+import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster } from "../src/controllers/biomeanController.js";
 //import mongoose from "mongoose";
 //import ClusterSchema  from "../models/vsanModel";
 //import vsCluster from '../server';

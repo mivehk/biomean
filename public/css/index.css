@@ -12,7 +12,7 @@
 body {
 margin: 0px;
 padding: 0px;
-background-color: #32435b;
+background-color: #580909;
 height: 100vh;
 font-family: Arial, Helvetica, sans-serif;
 }
@@ -77,7 +77,7 @@ flex-direction: row;
 width: 280px;
 height: 350px;
 border: 2px solid;
-background-color: var(--box-bg , #29394b);
+background-color: var(--box-bg , #580909);
 padding: 6px;
 color: var( --txt-bg, #bdc2c5);
 margin: 6px 12px 12px 12px;

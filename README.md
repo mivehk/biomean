@@ -14,17 +14,18 @@ make sure node and node package manager(npm) are installed on system (you can ve
 
 ----------------------------------------------
 2- Setup local Git Repositiry and connect it to Github (optional)
-#git init
-#touch readme.md
-#touch .gitignore
-#git add readme.md
-#git commit -m "first commit"
-#git status
-#git branch
-#git remote add "name-of-remote-repo" "https://<link-to-github-repositry>"
-  you may have to configure access token on Github repo.
-#git remote
-#git push <name-of-remote-repo> master
+
+<br/>#git init
+<br/>#touch readme.md
+<br/>#touch .gitignore
+<br/>#git add readme.md
+<br/>#git commit -m "first commit"
+<br/>#git status
+<br/>#git branch
+<br/>#git remote add "name-of-remote-repo" "https://<link-to-github-repositry>"
+  <br/>you may have to configure access token on Github repo.
+<br/>#git remote
+<br/>#git push <name-of-remote-repo> master
 
 -------------------------------------------------------
 3- Install mongodb community and mongosh
@@ -32,18 +33,18 @@ make sure node and node package manager(npm) are installed on system (you can ve
 https://docs.mongodb.com/manual/administration/install-community/
 
 Here is a recap of steps for Mac
-#brew update
-#brew tap mongodb/brew
-#brew install mongodb-community@5.0
-#mongod --config /usr/local/etc/mongod.conf --fork
-#ps aux | grep -v grep | grep mongod
-user1           32113   0.1  0.2  5530616  27800   ??  S     2:14PM   0:44.47 mongod --config /usr/local/etc/mongod.conf --fork
+<br/>#brew update
+<br/>#brew tap mongodb/brew
+<br/>#brew install mongodb-community@5.0
+<br/>#mongod --config /usr/local/etc/mongod.conf --fork
+<br/>#ps aux | grep -v grep | grep mongod
+<br/>user1           32113   0.1  0.2  5530616  27800   ??  S     2:14PM   0:44.47 mongod --config /usr/local/etc/mongod.conf --fork
 
-#npm install mongodb mongoos
+<br/>#npm install mongodb mongoos
 
 -------------------------------
 4- Initialize node and required packages
-#npm init
-#npm install express
-#npm install babel-cli babel-preset-env babel-preset-stage-0
-#npm install body-parser nodemon
+<br/>#npm init
+<br/>#npm install express
+<br/>#npm install babel-cli babel-preset-env babel-preset-stage-0
+<br/>#npm install body-parser nodemon

@@ -8,10 +8,16 @@ const PatientsSchema = new mongoose.Schema ({
 		type: String,
 		required: "Enter patient's name"
 	},
-	patientNumber:{
-		type: String,
-		required: "Enter patient's number"
+	documenNumber:{
+		type: Number,
+		set: setnumb,
+		//update: {$inc: {seq: 1}},
+		//required: "Enter patient's number"
 	} ,
+	/* patientCode:{
+		type: [],
+		set: setPatientCode,
+	}, */
 	testDate:{
 		type: Date,
 		required: "Enter test date"
@@ -85,7 +91,7 @@ function setMicromole(creatinine){
 	//return(parseFloat(this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize)) 
 }
 
-function setSpbmCap(numNodes,numCapdisks,numDiskgroups,ssdSize,FTM){
+/* function setSpbmCap(numNodes,numCapdisks,numDiskgroups,ssdSize,FTM){
 	let spArray= this.FTM.split(",");
 	let spVal = spArray[0];
 	console.log(spArray);
@@ -101,95 +107,20 @@ function setFTM2(){
 	let ff = ftms.split(",");
 	console.log(ff);
 	return(ff);
+} */
+
+function setPatientCode(patientName,patientNumber){
+	let pcode=this.patientName;
+	let pcode2= this.patientNumber;
+	
+	return Array.from(pcode,pcode2);
 }
 
+function setnumb(){
+	let jalad = parseInt(Date.now());
+	return jalad;
+}
+
+
 export default PatientsSchema;
-
-// function getRawCap(rawCap,numNodes,numCapdisks,numDiskgroups,ssdSize){
-//     if(!this.rawCap){
-//         return(this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize) 
-//     } else {
-//         return(this.rawCap)
-//     }
-// }
-// function getSpbmCap(spbmCap,numNodes,numCapdisks,numDiskgroups,ssdSize,FTM){
-//     if(isNaN(this.spbmCap)){
-//         return(parseFloat(this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize*this.FTM) ) 
-//     } else {
-//         return(this.spbmCap)
-//     }
-// }
-
-
-
-// ClusterSchema.methods.set= function(numNodes,numCapdisks,numDiskgroups,ssdSize){
-//     return(this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize)
-//     console.log(ClusterSchema.paths.rawcap)} 
-// const cluster = mongoose.model('cluster', ClusterSchema)
-
-// cluster.set(function(numNodes,numCapdisks,numDiskgroups,ssdSize))
-
-// console.log(ClusterSchema.paths.rawcap)
-
-
-// ClusterSchema.paths.spbmcap.set(function(numNodes,numCapdisks,numDiskgroups,ssdSize,FTM){
-//     return(this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize*this.FTM)
-//     console.log(ClusterSchema.paths.spbmcap)
-// })
-
-//console.log(ClusterSchema.path['rawCap'])
-
-// ClusterSchema.path('rawCap').set(function(value) {
-
-//      let val = this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize
-//      //let vali = parseFloat(val)
-//      console.log(val)
-//      //console.log(vali)
-//      return val
-//      //return vali   
-// })
-
-// ClusterSchema.path('rawCap').get(function(value) {
-
-//     if (isNan(this.rawCap)){
-//     let val2 = this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize
-//     //let vali = parseFloat(val)
-//     console.log(val2)
-//     return val2} else {
-//          return this.rawCap 
-//     }
-//     //console.log(vali)
-   
-//     //return vali
-   
-// })
-
-// ClusterSchema.path('spbmCap').set(function(value) {
-
-//     let spval =this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize*this.FTM
-//     //let spvali = parseFloat(spval)
-//     console.log(spval)
-//     /////this.spbmCap = parseFloat(spval)
-//     //console.log(spvali)
-//     return spval
-// })
-// ClusterSchema.path('spbmCap').get(function(value) {
-
-//     if (isNan(this.spbmCap)){
-//     let spval2 = this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize*this.FTM
-//     //let vali = parseFloat(val)
-//     console.log(spval2)
-//     return spval2} else {
-//          return this.spbmCap 
-//     }
-//     //console.log(vali)
-   
-//     //return vali
-//    isNa
-// })
-
-//function test() {return (this.numNodes* this.numCapdisks*this.numDiskgroups*this.ssdSize)})
-//ClusterSchema.get('spbmCap',(numNodes,numCapdisks,numDiskgroups,ssdSize,FTM)=>(this.numNodes* this.numCapdisks*this.numDiskgroups*this.ssdSize*this.FTM))
-
-//ClusterSchema.path('rawCap').get((numNodes,numCapdisks,numDiskgroups,ssdSize) =>(this.numNodes* this.numCapdisks* this.numDiskgroups* this.ssdSize))
 

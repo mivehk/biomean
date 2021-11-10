@@ -51,7 +51,6 @@ Here is a recap of steps for Mac
 <br/>#ps aux | grep -v grep | grep mongod
 <br/>user1           32113   0.1  0.2  5530616  27800   ??  S     2:14PM   0:44.47 mongod --config /usr/local/etc/mongod.conf --fork
 
->>>>>>> 7c644f018854e63c29660c5d33a5808704cf1d92
 <br/>#npm install mongodb mongoos
 
 -------------------------------
@@ -63,4 +62,4 @@ Here is a recap of steps for Mac
 <<<<<<< HEAD
 
 =======
->>>>>>> 7c644f018854e63c29660c5d33a5808704cf1d92
+

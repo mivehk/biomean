@@ -1,12 +1,11 @@
- <% clu.forEach(function (Clue){ %>
-
+<% clu.forEach(function (Clue){ %>
   
   <section class="ugly"> 
      <div class="fields">      
       <h1><label>Patient's name is hidden</h1>
       <div class="cID"><%= Clue._id %></div>  
       <div><label>Document's Code: </label><%= Clue.documenNumber %></div>
-      <div><label>Test taken at: </label><%=  Clue.testDate %></div>
+      <div><label>Test taken at: </label><%=  Clue.testDate.toISOString().split('T00:00:00.000Z') %></div>
       <div><label>eGFR(ml/min/1.73m2): </label><%=  Clue.eGfr %></div>
       <div><label>Glucose(mg/dl): </label><%=  Clue.glucose %></div>
      

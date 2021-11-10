@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 import PatientsSchema  from "../models/biomeanModel.js";
+
 //import path from "path";
 
 const Cluster = mongoose.model("Cluster" , PatientsSchema);
+
+
 
 export const getClusters = (req,res) =>{
     

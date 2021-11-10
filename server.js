@@ -16,8 +16,8 @@ const __filename=fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 
-//import ClusterSchema from "./src/models/vsanModel";
-//import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster} from "./src/controllers/vsanController"
+//import ClusterSchema from "./src/models/biomeanModel";
+//import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster} from "./src/controllers/biomeanController"
 //import fs from 'fs'
 ////import methodOverride from "method-override";
 

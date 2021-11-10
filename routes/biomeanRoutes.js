@@ -1,6 +1,6 @@
 import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster } from "../src/controllers/biomeanController.js";
 //import mongoose from "mongoose";
-//import ClusterSchema  from "../models/vsanModel";
+//import ClusterSchema  from "../models/biomeanModel";
 //import vsCluster from '../server';
 import express from "express";
 
@@ -76,30 +76,8 @@ const routes = (app) => {
 
 		.post();
 	
-	// .put((req,res,err,next) =>{
-	// 	if(err){
-	// 		res.send(err);
-	// 	}
-	// 	res.redirect("/");
-	// 	next();
-	// }, updateCluster);
-		
+	
 
-	// app.route("/cluster")
-
-	// 	.get((req, res, next) => {
-	// 		//middleware : middleware are functions have access to req/res objects; can change,end them or usin "next" call another function
-
-	// 		console.log (`Request from : ${ req.originalUrl}`);
-	// 		console.log(`Request type: ${req.method}`);
-	// 		next();
-	// 	}
-	// 		//,getClusters 
-	// 		/*(req,res,next) =>{
-	//    res.send('GET request successful!')
-	// }
-	//  */
-	// 	);
 	app.route("/")
 		.get((req,res,next )=>{
 			//res.render('layout',{ pageTitle: 'cluster', template: 'index'});
@@ -117,103 +95,6 @@ const routes = (app) => {
 	// } )
 
 		.post(addNewCluster) ;
-
-
-	// app.route("/layout")
-	// 	.delete((req,res,err,next) =>{
-	// 		if(err){
-	// 			res.send(err);
-	// 		}
-	// 		console.log(`Request type: ${req.method}`);
-	// 		console.log (`Request from : ${ req.originalUrl}`);
-	// 		console.log( "deleting this selected clusterid");
-	// 		next();
-	// 	}, deleteCluster)
-
-	// 	.put((req,res,err,next)=>{
-	// 		if(err){
-	// 			res.send(err)
-	// 		}
-	// 		console.log(`Request type: ${req.method}`);
-	// 		console.log (`Request from : ${ req.originalUrl}`);
-	// 		console.log("updating this clusterid");
-	// 		next();
-	// 	}, updateCluster);
-
-
-	// .put((req,res,err,next) =>{
-	// 	if(err){
-	// 		res.send(err);
-	// 	}
-	// 	res.redirect("/");
-	// 	next();
-	// }, updateCluster);
-
-	// app.route("/:clusterid")
-
-	// 	.get((req,res,err,next) =>{
-	// 		if(err){
-	// 			res.send(err);
-	// 		}
-	// 		console.log(`Request type: ${req.method}`);
-	// 		console.log (`Request from : ${ req.originalUrl}`);
-	// 		console.log( "deleting this selected clusterid");
-	// 		next();
-	// 	}, deleteCluster);
-	
-	// 	.get((req,res,err,next)=>{
-	// 		if(err){
-	// 			res.send(err);
-	// 		}
-	// 		console.log("testing testing");
-	// 		//res.render("/layout/index2");
-	// 		next();
-	// 	} ,updateCluster );
-
-	// .delete((req,res ,next ) => {
-	// 	console.log("yes, sending cluster data to cluster page");
-        
-	// 	next();
-	// } ,deleteCluster );
-		
-
-	//.delete( deleteCluster1 )
-		
-	/*(req,res) =>
-    res.send('DELETE request successful!')
-    */
-    
-
-	// .post(addNewCluster
-        
-	/* (req,res) =>
-    res.send('POST request successful!')
-    */
-	//)
- 
-	// app.route("/cluster/:_id")
-
-	// 	.get(getClusterWithID)
-
-	//     .put(updateCluster)
-        
-	//    .delete( deleteCluster1)
-
-        
-	//.delete( deleteCluster)
-            
-	/*(req,res) =>
-    res.send('PUT request successful!')
-    */
-
-	// app.route("/cluster/:_id")
-
-	// 	.get((req,res ,next ) => {
-	//         console.log("yes, sending cluster data to cluster page");
-            
-	// 		next();
-	// 	} , getClusterWithID );
-
 
 };
 

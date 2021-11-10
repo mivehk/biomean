@@ -7,16 +7,6 @@
       <label>Test taken at: </label><input type="number" name="testDate" id="testDate"  ><br/><label class="oldval">Old Value=  </label><%=  uclu.testDate %></input><br/>
       <label>eGFR(ml/min/1.73m2): </label><input type="number" name="eGfr" id="eGfr" ><br/><label class="oldval">Old Value=  </label><%=  uclu.eGfr %></input><br/>
       <label>Glucose(mg/dl): </label><input type="number" name="glucose" id="glucose" ><br/><label class="oldval">Old Value=  </label><%=  uclu.glucose %></input><br/>
-      <!---<label>Storage policy: </label>
-      <select name="FTM" id="FTM" ><br/>
-        <option name="FTT-0" value="1,SFTT0"> FTT0</option>   
-        <option name="FTT-1" value="0.5,SFTT1"> FTT1 </option>                    
-        <option name="FTT-2" value="0.333,SFTT2"> FTT2 </option>           
-        <option name="FTT-3"value="0.25,SFTT3"> FTT3 </option>          
-        <option name="FTT-RAID5" value="0.75,FTM5-SFTT1"> FTM5-FTT1 </option>           
-        <option name="FTT-RAID6" value="0.67,FTM6-SFTT2"> FTM6-FTT2 </option>                  
-    </select> <br/> 
-    <label class="oldval">Old Value=  </label><%=  uclu.FTM2[1] %><br/>--->
       <input type="hidden" id="creatinine" name="creatinine"></input><br/>
       <input type="hidden" id="creatinineMicromole" name="creatinineMicromole"></input> <br/>
        <svg  
@@ -25,10 +15,10 @@
           /> 
           </svg>
          </div> 
-      <vsan-form method="" action="" >
+      <BMP-form method="" action="" >
           <a class="update" href="/" > Back To Main Page </a> 
           <a class="update" href="/update/<%= uclu._id %>"> Update</a>       
-     </vsan-form>
+     </BMP-form>
   
     
 </section>   

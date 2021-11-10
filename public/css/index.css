@@ -140,7 +140,7 @@ display: flex;
 flex-flow: row wrap;
 align-content: flex-start;
 }
-section > vsan-form {
+section > BMP-form {
 margin: 10px;
 
 }

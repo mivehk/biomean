@@ -5,11 +5,12 @@ import routes from "./routes/biomeanRoutes.js";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import path from "path";
+import chart from "chart.js";
 
 /* these lines are added to comply with changes
  applied in ES vs CS for old variables such as __dirname to work */
 
- import {fileURLToPath} from 'url';
+import {fileURLToPath} from 'url';
 import {dirname} from 'path';
 
 const __filename=fileURLToPath(import.meta.url);
@@ -59,9 +60,9 @@ routes(app);
 /* global __dirname */
 
 app.set("view engine", "ejs");
-app.set("views", path.join( __dirname , "/views"));
+app.set("views", path.join( __dirname , "./views"));
 
-app.use(express.static(path.join( __dirname , "/public")));
+app.use(express.static(path.join( __dirname , "./public")));
 
 
 //app.get("/" , (req,res)=>{ res.render("layout");});

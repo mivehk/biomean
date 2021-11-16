@@ -5,7 +5,15 @@ import PatientsSchema  from "../models/biomeanModel.js";
 
 const Cluster = mongoose.model("Cluster" , PatientsSchema);
 
-
+export const showchartClusters = (req,res) =>{
+    
+	Cluster.find ({}, (err, cluster) => {
+		if (err) {
+			res.send(err);
+		}
+		res.render("showchart.ejs");
+	});
+};
 
 export const getClusters = (req,res) =>{
     

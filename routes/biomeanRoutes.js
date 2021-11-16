@@ -1,4 +1,4 @@
-import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster } from "../src/controllers/biomeanController.js";
+import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster , showchartClusters } from "../src/controllers/biomeanController.js";
 //import mongoose from "mongoose";
 //import ClusterSchema  from "../models/biomeanModel";
 //import vsCluster from '../server';
@@ -11,6 +11,28 @@ import express from "express";
 
 
 const routes = (app) => {
+
+	app.route("/showchart/:clusterid")
+	
+	.get((req,res ,err,next) => {
+		if (err) {
+			res.send(err);
+		}
+		console.log(`Request type: ${req.method}`);
+		console.log (`Request from : ${ req.originalUrl}`);
+		console.log("show chart!");
+		next();
+	},showchartClusters )
+
+	.post((req,res,err,next) =>{
+		if(err){
+			res.send(err);
+		}
+		console.log(`Request type: ${req.method}`);
+		console.log (`Request from : ${ req.originalUrl}`);
+		console.log( "show charts for selected clusterid");
+		next();
+	}, showchartClusters )
 
 	app.route("/layout/:clusterid")
 	

@@ -45,9 +45,7 @@ const PatientsSchema = new mongoose.Schema ({
 		type: Number ,
 		//required: true,
 		set: setMicromole,
-		//get: getRawCap
-		//set: (numNodes,numCapdisks,numDiskgroups,ssdSize) =>{numNodes*numCapdisks*numDiskgroups*ssdSize}
-		//$multiply: ["$numNodes","$numCapdisks","$numDiskgroups","$ssdSize"]
+		
     
 	},
 	created_date:{
@@ -60,7 +58,7 @@ function setMicromole(creatinine){
 	let micromoleval = parseFloat(this.creatinine*88.4);
 	console.log(micromoleval);
 	return micromoleval;
-	//return(parseFloat(this.numNodes*this.numCapdisks*this.numDiskgroups*this.ssdSize)) 
+	 
 }
 
 

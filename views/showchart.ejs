@@ -3,11 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <title>Save a life!</title> 
-<link rel="stylesheet" type="text/css" href="/css/index.css"/> 
- 
+<link rel="stylesheet" type="text/css" href="/css/index.css"/>  
 </head>
 <body> 
-    <div id="chartDiv" style="width: 100%; height: 400px;"></div>
+    <div id="chartDiv" style="width: 100%; height: 800px;"></div>
     <h1>Save a Life!</h1>
     <BMP-form method="" action="" >
         <a class="update" href="/" > Back To Main Page </a>       
@@ -39,10 +38,10 @@
 
  function renderChart(series){
      JSC.Chart('chartDiv',{
-        title_label_text: 'Creatinine as pathogenesis of stroke',
+        title_label_text: 'Creatinine values as Pathogenesis for Ischemic Stroke',
     annotations: [{
         label_text: 'Source: Biomean! Save a life!',
-        position: 'bottom left'
+        position: 'bottom center'
     }],
     legend_visible: false,
     xAxis_crosshair_enabled: true,

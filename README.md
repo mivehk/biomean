@@ -1,4 +1,4 @@
-**<h1>Save a Life</h1>**
+*<h1>Save a Life</h1>*
 **BMP Tracker as a marker for Pathogenesis of Ischemic Stroke.**
 
 Many people lost their family members due to direct or indirect covid circumstances since March 2020 in spite of courageous effort exerted by Health around the globe; however, there are instances of negligence in decision making or medical malpractice which makes you think deeper about the necessity of implementing stronger guidelines for non-critical medical staff to leverage preventative action items which are backed up by data presented for hundreds and thousands other patients in similar circumstances.  Reference to records provided by biomedical findings supposed to be translated into better clinical decision making and help to identify risk factors that contribute strongly to disease states and I recently lost my mother in one of these cases that physician did not pay attention to the history of patients with renal dysfunction specifically with high creatinine serum while complaining about symptoms such as dizziness or pain in left upper arm and neck during a virtual visit without any sense of urgency to inform me of transferring my mother into Emergency Service at the same night she suffered from acute embolic ischemic stroke.
@@ -16,6 +16,7 @@ make sure node and node package manager(npm) are installed on system (you can ve
 ----------------------------------------------
 2- Setup local Git Repositiry and connect it to Github (optional)
 
+```
 <br/>#git init
 <br/>#touch readme.md
 <br/>#touch .gitignore
@@ -27,7 +28,7 @@ make sure node and node package manager(npm) are installed on system (you can ve
   <br/>you may have to configure access token on Github repo.
 <br/>#git remote
 <br/>#git push <name-of-remote-repo> master
-
+```
 -------------------------------------------------------
 3- Install mongodb community and mongosh
   
@@ -35,17 +36,21 @@ https://docs.mongodb.com/manual/administration/install-community/
 <<<<<<< HEAD
 
 Here is a recap of steps for Mac
-<br/>#brew update
+<br/>
+```
+#brew update
 <br/>#brew tap mongodb/brew
 <br/>#brew install mongodb-community@5.0
 <br/>#mongod --config /usr/local/etc/mongod.conf --fork
 <br/>#ps aux | grep -v grep | grep mongod
 <br/>user1           32113   0.1  0.2  5530616  27800   ??  S     2:14PM   0:44.47 mongod --config /usr/local/etc/mongod.conf --fork
-
+```
 =======
 
 Here is a recap of steps for Mac
-<br/>#brew update
+<br/>
+```
+#brew update
 <br/>#brew tap mongodb/brew
 <br/>#brew install mongodb-community@5.0
 <br/>#mongod --config /usr/local/etc/mongod.conf --fork
@@ -53,13 +58,16 @@ Here is a recap of steps for Mac
 <br/>user1           32113   0.1  0.2  5530616  27800   ??  S     2:14PM   0:44.47 mongod --config /usr/local/etc/mongod.conf --fork
 
 <br/>#npm install mongodb mongoos
-
+```
 -------------------------------
 4- Initialize node and required packages
-<br/>#npm init
+<br/>
+```
+#npm init
 <br/>#npm install express
 <br/>#npm install babel-cli babel-preset-env babel-preset-stage-0
 <br/>#npm install body-parser nodemon
+```
 <<<<<<< HEAD
 
 =======

@@ -4,12 +4,6 @@ import { addNewCluster , getClusters , getClusterWithID , updateCluster , delete
 //import vsCluster from '../server';
 import express from "express";
 
-//const Cluster = mongoose.model("Cluster" , ClusterSchema);
-//// import methodOverrride from "method-override";
-//// const app= express();
-//// app.use(methodOverride('_method'));
-
-
 const routes = (app) => {
 
 	app.route("/showchart/:clusterid")

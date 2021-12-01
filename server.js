@@ -5,7 +5,7 @@ import routes from "./routes/biomeanRoutes.js";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import path from "path";
-import chart from "chart.js";
+//import chart from "chart.js";
 
 /* these lines are added to comply with changes
  applied in ES vs CS for old variables such as __dirname to work */

@@ -4,9 +4,12 @@
 <meta charset="utf-8"/>
 <title>Save a life!</title> 
 <link rel="stylesheet" type="text/css" href="/css/index.css"/>  
+<script src="https://code.jscharting.com/latest/jscharting.js"></script> 
 </head>
 <body> 
-    <div id="chartDiv" style="width: 100%; height: 800px;"></div>
+    <div id="chartDiv" style="width: 100%; height: 300px;"></div>
+    <div id="chartDiv2" style="width: 100%; height: 300px;"></div>
+    <div id="chartDiv3" style="width: 100%; height: 300px;"></div>
     <h1>Save a Life!</h1>
     <BMP-form method="" action="" >
         <a class="update" href="/" > Back To Main Page </a>       
@@ -21,18 +24,63 @@
     .catch(function (error){
         console.log(error)
     });
+
+    JSC.fetch("../../biomean.csv")    
+    .then(function(response){return response.text(); } )    
+    .then( function(text) {let series2=csvToSeries2(text);
+        renderChart2(series2);})
+    .catch(function (error){
+        console.log(error)
+    });
+
+    JSC.fetch("../../biomean.csv")    
+    .then(function(response){return response.text(); } )   
+    .then( function(text) {let series3=csvToSeries3(text);
+        renderChart3(series3);})    
+    .catch(function (error){
+        console.log(error)
+    });
     
     function csvToSeries(text){
         //const CreatinineFactor = 'creatinine';
         let dataAsJson = JSC.csv2Json(text);
         let fatemehfaritous = [];
+    
         dataAsJson.forEach(function (row){
             if(row.patientName ==='fatemeh Faritous'){
                 fatemehfaritous.push({x: row.testDate, y: row.creatinine});
             }
         });
             return[
-                {name: 'Fatemeh Faritous', points: fatemehfaritous}
+                {name: 'Fatemeh Faritous', points: fatemehfaritous},
+            ];
+    }
+    function csvToSeries2(text){
+        //const CreatinineFactor = 'creatinine';
+        let dataAsJson2 = JSC.csv2Json(text);
+        let fatemehfaritous2 = [];
+    
+        dataAsJson2.forEach(function (row){
+            if(row.patientName ==='fatemeh Faritous'){
+                fatemehfaritous2.push({x: row.testDate, y: row.eGfr});
+            }
+        });
+            return[
+                {name: 'Fatemeh Faritous', points: fatemehfaritous2},
+            ];
+    }
+    function csvToSeries3(text){
+        //const CreatinineFactor = 'creatinine';
+        let dataAsJson3 = JSC.csv2Json(text);
+        let fatemehfaritous3 = [];
+    
+        dataAsJson3.forEach(function (row){
+            if(row.patientName ==='fatemeh Faritous'){
+                fatemehfaritous3.push({x: row.testDate, y: row.glucose});
+            }
+        });
+            return[
+                {name: 'Fatemeh Faritous', points: fatemehfaritous3},
             ];
     }
 
@@ -50,5 +98,33 @@
     series: series
      });
  }   
+ function renderChart2(series2){
+     JSC.Chart("chartDiv2",{
+        title_label_text: 'eGFR values as Pathogenesis for Ischemic Stroke',
+    annotations: [{
+        label_text: 'Source: Biomean! Save a life!',
+        position: 'bottom center'
+    }],
+    legend_visible: false,
+    xAxis_crosshair_enabled: true,
+    defaultSeries_firstPoint_label_text: '<b>%seriesName</b>',
+    defaultPoint_tooltip: '%seriesName <b>%yValue</b> ml/min/1.73m2',
+    series: series2
+     });
+ } 
+ function renderChart3(series3){
+     JSC.Chart('chartDiv3',{
+        title_label_text: 'Glucose values as Pathogenesis for Ischemic Stroke',
+    annotations: [{
+        label_text: 'Source: Biomean! Save a life!',
+        position: 'bottom center'
+    }],
+    legend_visible: false,
+    xAxis_crosshair_enabled: true,
+    defaultSeries_firstPoint_label_text: '<b>%seriesName</b>',
+    defaultPoint_tooltip: '%seriesName <b>%yValue</b> mg/dl',
+    series: series3
+     });
+ } 
   </script> 
  </html>

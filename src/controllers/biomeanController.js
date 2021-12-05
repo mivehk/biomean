@@ -27,8 +27,13 @@ export const showchartClusters = (req,res) =>{
 			//console.log(pati[0].patientID);
 					BMPCluster.find({'patientID': pati[0].patientID},(err , clast) =>{
             		//let csv = json2csv(clast,['_id','documenNumber','testDate','eGfr','glucose','creatinine','creatinineMicromole','created_date','patientID']);
-            		//fs.writeFile('../../testfile.csv',csv,function(err){if(err){res.send(err);}}
-            		//)
+            		let data = JSON.stringify(clast , null, 2);
+					fs.writeFile('./testfile.json',data,function(err){
+						if(err){
+							res.send(err);
+							console.log('json creation killed pet');
+						}}
+            		)
             		console.log(clast);
 					//console.log(data);
 					//res.render("showchart.ejs");

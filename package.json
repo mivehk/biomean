@@ -28,6 +28,7 @@
     "express": "^4.17.1",
     "http-server": "^0.12.1",
     "jscharting": "^3.1.0",
+    "json2csv": "^5.0.6",
     "minimist": "^1.2.5",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.4",

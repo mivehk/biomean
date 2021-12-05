@@ -7,16 +7,17 @@
 <script src="https://code.jscharting.com/latest/jscharting.js"></script> 
 </head>
 <body> 
+    <BMP-form method="" action="" >
+        <a class="update" href="/" > Back To Main Page </a>       
+   </BMP-form>
     <div id="chartDiv" style="width: 100%; height: 300px;"></div>
     <div id="chartDiv2" style="width: 100%; height: 300px;"></div>
     <div id="chartDiv3" style="width: 100%; height: 300px;"></div>
     <h1>Save a Life!</h1>
-    <BMP-form method="" action="" >
-        <a class="update" href="/" > Back To Main Page </a>       
-   </BMP-form>
 </body>
 <script src="https://code.jscharting.com/latest/jscharting.js"></script> 
 <script> 
+
     JSC.fetch("../../biomean.csv")
     .then(function(response){return response.text(); } )
     .then( function(text) {let series=csvToSeries(text);
@@ -44,43 +45,43 @@
     function csvToSeries(text){
         //const CreatinineFactor = 'creatinine';
         let dataAsJson = JSC.csv2Json(text);
-        let fatemehfaritous = [];
+        let p001= [];
     
         dataAsJson.forEach(function (row){
-            if(row.patientName ==='fatemeh Faritous'){
-                fatemehfaritous.push({x: row.testDate, y: row.creatinine});
+            if(row.patientName ==='patient001'){
+                p001.push({x: row.testDate, y: row.creatinine});
             }
         });
             return[
-                {name: 'Fatemeh Faritous', points: fatemehfaritous},
+                {name: 'Patient001', points: p001},
             ];
     }
     function csvToSeries2(text){
         //const CreatinineFactor = 'creatinine';
         let dataAsJson2 = JSC.csv2Json(text);
-        let fatemehfaritous2 = [];
+        let p002 = [];
     
         dataAsJson2.forEach(function (row){
-            if(row.patientName ==='fatemeh Faritous'){
-                fatemehfaritous2.push({x: row.testDate, y: row.eGfr});
+            if(row.patientName ==='patient001'){
+                p002.push({x: row.testDate, y: row.eGfr});
             }
         });
             return[
-                {name: 'Fatemeh Faritous', points: fatemehfaritous2},
+                {name: 'Patient001', points: p002},
             ];
     }
     function csvToSeries3(text){
         //const CreatinineFactor = 'creatinine';
         let dataAsJson3 = JSC.csv2Json(text);
-        let fatemehfaritous3 = [];
+        let p003 = [];
     
         dataAsJson3.forEach(function (row){
-            if(row.patientName ==='fatemeh Faritous'){
-                fatemehfaritous3.push({x: row.testDate, y: row.glucose});
+            if(row.patientName ==='patient001'){
+                p003.push({x: row.testDate, y: row.glucose});
             }
         });
             return[
-                {name: 'Fatemeh Faritous', points: fatemehfaritous3},
+                {name: 'Patient001', points: p003},
             ];
     }
 

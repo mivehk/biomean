@@ -1,12 +1,15 @@
 import mongoose from "mongoose";
 import {PatientsSchema , BMPSchema}  from "../models/biomeanModel.js";
+import json2csv from "json2csv";
+import fs from "fs";
+
 
 //import path from "path";
 
 const Cluster = mongoose.model("Cluster" , PatientsSchema, 'patientDocs');
 const BMPCluster = mongoose.model("BMPCluster", BMPSchema ,'BMPDocs');
 
-export const showchartClusters = (req,res) =>{
+/* export const showchartClusters = (req,res) =>{
     
 	BMPCluster.find ({}, (err, cluster) => {
 		if (err) {
@@ -14,7 +17,29 @@ export const showchartClusters = (req,res) =>{
 		}
 		res.render("showchart.ejs");
 	});
-};
+}; */
+
+export const showchartClusters = (req,res) =>{
+		BMPCluster.find({_id: req.params.clusterid},(err ,pati)=>{
+			if(err){
+				res.send(err);
+			}
+			//console.log(pati[0].patientID);
+					BMPCluster.find({'patientID': pati[0].patientID},(err , clast) =>{
+            		//let csv = json2csv(clast,['_id','documenNumber','testDate','eGfr','glucose','creatinine','creatinineMicromole','created_date','patientID']);
+            		//fs.writeFile('../../testfile.csv',csv,function(err){if(err){res.send(err);}}
+            		//)
+            		console.log(clast);
+					//console.log(data);
+					//res.render("showchart.ejs");
+            		//return;
+        			} 
+	                )
+	    } 
+    ) 
+}
+
+
 
 export const getClusters = (req,res) =>{
     

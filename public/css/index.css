@@ -109,7 +109,7 @@ border-radius: 4px;
 color: #ffffff;
 text-decoration: none;
 }
-.favorite {
+.atrialFibrillation {
 display: flex ;
 position: relative;
 width: 24px;
@@ -117,13 +117,13 @@ height: 24px;
 fill: #bdc2c5;
 cursor: pointer;
 }
-.favorite.is-fav {
+.atrialFibrillation.is-fav {
   fill: #37ad79;
 }
-.favorite.is-fav-hovering {
+.atrialFibrillation.is-fav-hovering {
   fill: #ffab23;
 }
-.favorite.is-fav.is-fav-hovering {
+.atrialFibrillation.is-fav.is-fav-hovering {
   fill: #ffab23;
 }
 

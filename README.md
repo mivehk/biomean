@@ -1,12 +1,13 @@
 *<h1>Save a Life</h1>*
 **BMP Tracker as a marker for Pathogenesis of Ischemic Stroke.**
-
-Many people lost their family members due to direct or indirect covid circumstances since March 2020 in spite of courageous effort exerted by Health around the globe; however, there are instances of negligence in decision making or medical malpractice which makes you think deeper about the necessity of implementing stronger guidelines for non-critical medical staff to leverage preventative action items which are backed up by data presented for hundreds and thousands other patients in similar circumstances.  Reference to records provided by biomedical findings supposed to be translated into better clinical decision making and help to identify risk factors that contribute strongly to disease states and I recently lost my mother in one of these cases that physician did not pay attention to the history of patients with renal dysfunction specifically with high creatinine serum while complaining about symptoms such as dizziness or pain in left upper arm and neck during a virtual visit without any sense of urgency to inform me of transferring my mother into Emergency Service at the same night she suffered from acute embolic ischemic stroke.
-<br/>There has been research conducted by NIH since the 90s to emphasize the epidemiological relationships between renal dysfunctions in patients with cardiovascular disease which suggests pathogenesis to ischemic stroke but, it does not seem that result has been translated from bench to bed properly to mandate clinical team for diagnosis measurement. Studying in the field of bioinformatics can help to build computational tools which provide the evidence required for better decision making and my goal is to help patients such as my mother who could have continued their life if it was not for such medical malpractices. 
-This is a tool that collects some basic metabolic panels such as eGFR , creatinine serum, and glucose levels powered by MEAN Stack to provide tracking charts for better patient's health risk analysis.
-
-This is an instruction on how to prepare a simple node application: 
-
+Many people lost their family members due to direct or indirect covid circumstances since March 2020 despite courageous effort exerted by medical staff around the globe; however, there are instances of negligence in decision making or medical malpractice which makes you think about the necessity of implementing stronger guidelines to leverage preventative measurements which are backed up by data presented for hundreds and thousands other patients in similar circumstances.  Referencing records provided by Biomedical findings supposed to be translated into better clinical decision making and help to identify risk factors that contribute strongly to disease states. I recently lost my mother in one of those cases that Physician ignored records of a patient with Hyperglycemia with high Creatinine Serum levels despite symptoms such as dizziness or pain in the left upper arm and neck during a virtual visit without any sense of urgency to transfer the patient into Emergency Service when she suffered through an Embolic Ischemic Stroke at the same night.
+</br>
+There has been some research conducted by NIH since the 90s to emphasize the Epidemiological relationships between Renal Dysfunction in patients with cardiovascular disease which suggests Pathogenesis to Ischemic Stroke but, it does not seem that result has been translated from bench to bed properly. Studying in the field of Bioinformatics can help to build Computational tools which provide the evidence required for better decision making and my goal is to help patients such as my mother.
+</br>
+This is a prototype for a tool that collects basic metabolic panels such as eGFR, Creatinine Serum, and Glucose levels powered by MEAN Stack to provide tracking charts for better patient monitoring.
+</br>
+Below is an instruction on how to prepare a simple node application: 
+</br>
 ============================================================
 
 1- Prepare a dedicated directory for application binary and files:

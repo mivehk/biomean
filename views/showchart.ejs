@@ -17,73 +17,72 @@
 </body>
 <script src="https://code.jscharting.com/latest/jscharting.js"></script> 
 <script> 
-
-    JSC.fetch("../../biomean.csv")
-    .then(function(response){return response.text(); } )
-    .then( function(text) {let series=csvToSeries(text);
+     //apparently fetch relative path to parent also searched inside public without meesing with url
+    JSC.fetch('../testfile.json')
+    .then(response => response.json() )
+    .then( function(json) {let series=jsonToSeries(json);
         renderChart(series);})
     .catch(function (error){
         console.log(error)
-    });
+    }); 
 
-    JSC.fetch("../../biomean.csv")    
-    .then(function(response){return response.text(); } )    
-    .then( function(text) {let series2=csvToSeries2(text);
+/*     JSC.fetch("./testfile.json")    
+    .then(response => response.json())    
+    .then( function(json) {let series2=jsonToSeries2(json);
         renderChart2(series2);})
     .catch(function (error){
         console.log(error)
     });
 
-    JSC.fetch("../../biomean.csv")    
-    .then(function(response){return response.text(); } )   
-    .then( function(text) {let series3=csvToSeries3(text);
+    JSC.fetch("./testfile.json")    
+    .then(response => response.json() )   
+    .then( function(json) {let series3=jsonToSeries3(json);
         renderChart3(series3);})    
     .catch(function (error){
         console.log(error)
-    });
+    }); */
     
-    function csvToSeries(text){
+    function jsonToSeries(data){
         //const CreatinineFactor = 'creatinine';
-        let dataAsJson = JSC.csv2Json(text);
+        //let dataAsJson = ;
+        //console.log(series);
+        console.log(data);
         let p001= [];
     
-        dataAsJson.forEach(function (row){
-            if(row.patientName ==='patient001'){
+        data.forEach(function (row){
+    
                 p001.push({x: row.testDate, y: row.creatinine});
-            }
+                
         });
             return[
-                {name: 'Patient001', points: p001},
+                {name: 'Patient001', points: p001}
             ];
     }
-    function csvToSeries2(text){
+/*     function jsonToSeries2(json){
         //const CreatinineFactor = 'creatinine';
-        let dataAsJson2 = JSC.csv2Json(text);
+        //let dataAsJson2 = JSC.csv2Json(text);
         let p002 = [];
     
-        dataAsJson2.forEach(function (row){
-            if(row.patientName ==='patient001'){
+        json.forEach(function (row){
                 p002.push({x: row.testDate, y: row.eGfr});
-            }
+            
         });
             return[
                 {name: 'Patient001', points: p002},
             ];
     }
-    function csvToSeries3(text){
+    function jsonToSeries3(json){
         //const CreatinineFactor = 'creatinine';
-        let dataAsJson3 = JSC.csv2Json(text);
+        //let dataAsJson3 = JSC.csv2Json(text);
         let p003 = [];
     
-        dataAsJson3.forEach(function (row){
-            if(row.patientName ==='patient001'){
+        json.forEach(function (row){
                 p003.push({x: row.testDate, y: row.glucose});
-            }
         });
             return[
                 {name: 'Patient001', points: p003},
             ];
-    }
+    } */
 
  function renderChart(series){
      JSC.Chart('chartDiv',{
@@ -99,7 +98,7 @@
     series: series
      });
  }   
- function renderChart2(series2){
+/*  function renderChart2(series2){
      JSC.Chart("chartDiv2",{
         title_label_text: 'eGFR values as Pathogenesis for Ischemic Stroke',
     annotations: [{
@@ -126,6 +125,6 @@
     defaultPoint_tooltip: '%seriesName <b>%yValue</b> mg/dl',
     series: series3
      });
- } 
+ }  */
   </script> 
  </html>

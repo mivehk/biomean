@@ -3,7 +3,6 @@ import {PatientsSchema , BMPSchema}  from "../models/biomeanModel.js";
 import json2csv from "json2csv";
 import fs from "fs";
 
-
 //import path from "path";
 
 const Cluster = mongoose.model("Cluster" , PatientsSchema, 'patientDocs');
@@ -24,19 +23,20 @@ export const showchartClusters = (req,res) =>{
 			if(err){
 				res.send(err);
 			}
+			//apparetnly fs module consider project folder as the current . folder 
 			//console.log(pati[0].patientID);
 					BMPCluster.find({'patientID': pati[0].patientID},(err , clast) =>{
             		//let csv = json2csv(clast,['_id','documenNumber','testDate','eGfr','glucose','creatinine','creatinineMicromole','created_date','patientID']);
             		let data = JSON.stringify(clast , null, 2);
-					fs.writeFile('./testfile.json',data,function(err){
+					fs.writeFile('./public/testfile.json',data,function(err){
 						if(err){
 							res.send(err);
 							console.log('json creation killed pet');
 						}}
             		)
-            		console.log(clast);
+            		//console.log(clast);
 					//console.log(data);
-					//res.render("showchart.ejs");
+					res.render("showchart.ejs");
             		//return;
         			} 
 	                )

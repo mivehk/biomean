@@ -9,7 +9,9 @@ Below is an instruction on how to prepare a simple node application:</h4>
 
 1- Prepare a dedicated directory for application binary and files:
 
-make sure node and node package manager(npm) are installed on system (you can verify this using "npm --version" and "node --version")
+Make sure node and node package manager(npm) are installed on system (you can verify this using "npm --version" and "node --version")
+
+https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
 
 ----------------------------------------------
 2- Setup local Git Repositiry and connect it to Github (optional)
@@ -45,18 +47,6 @@ Here is a recap of steps for Mac
 ```
 =======
 
-Here is a recap of steps for Mac
-<br/>
-```
-#brew update
-<br/>#brew tap mongodb/brew
-<br/>#brew install mongodb-community@5.0
-<br/>#mongod --config /usr/local/etc/mongod.conf --fork
-<br/>#ps aux | grep -v grep | grep mongod
-<br/>user1           32113   0.1  0.2  5530616  27800   ??  S     2:14PM   0:44.47 mongod --config /usr/local/etc/mongod.conf --fork
-
-<br/>#npm install mongodb mongoos
-```
 -------------------------------
 4- Initialize node and required packages
 <br/>

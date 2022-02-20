@@ -36,22 +36,32 @@ export const BMPSchema = new mongoose.Schema ({
 	} ,
 	testDate:{
 		type: Date, 
-		required: "Enter test date"
+		required: "Enter date test was taken"
 	} ,
 	eGfr:{
 		type: Number,
-		required: "Enter eGFR value"
+		required: "Enter value of eGFR"
 	} ,
 	glucose:{
 		type:Number,
-		required: "Enter glucose value"
+		required: "Enter value of glucose"
 	} ,
 	creatinine:{
 		type: Number,
 		//min: 0.0,
 		//max: 100,
-		required: "Enter creatinine serum value"
-	} ,	
+		required: "Enter value of creatinine serum"
+	} ,
+	bun:{
+		type: Number,
+		//min: 0.0,
+		//max: 100,
+		required: "Enter value of blood urea nitrogen"
+	} ,
+	atrialFibrillation:{
+		type: Boolean,
+		default: false
+	},		
 	creatinineMicromole: {
 		type: Number ,
 		//required: true,

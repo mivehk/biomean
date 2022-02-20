@@ -75,7 +75,7 @@ align-content: space-between;
 /*display: flex; */
 flex-direction: row;
 width: 280px;
-height: 350px;
+height: 370px;
 border: 2px solid;
 background-color: var(--box-bg , #580909);
 padding: 6px;
@@ -110,21 +110,21 @@ color: #ffffff;
 text-decoration: none;
 }
 .atrialFibrillation {
-display: flex ;
-position: relative;
+display: inline-block ;
+position:relative;
 width: 24px;
 height: 24px;
 fill: #bdc2c5;
 cursor: pointer;
 }
 .atrialFibrillation.is-fav {
-  fill: #37ad79;
+  fill: #c2061f;
 }
 .atrialFibrillation.is-fav-hovering {
   fill: #ffab23;
 }
 .atrialFibrillation.is-fav.is-fav-hovering {
-  fill: #ffab23;
+  fill: #1f1505;
 }
 
 /*-------------------------*/

@@ -2,7 +2,7 @@
 <html lang="us">
 <head>
 <meta charset="utf-8"/>
-<title>Save a life!</title> 
+<title>Kidney Impairment Biomarkers!</title> 
 <link rel="stylesheet" type="text/css" href="/css/index.css"/>  
 <script src="https://code.jscharting.com/latest/jscharting.js"></script> 
 </head>
@@ -13,7 +13,8 @@
     <div id="chartDiv" style="width: 100%; height: 300px;"></div>
     <div id="chartDiv2" style="width: 100%; height: 300px;"></div>
     <div id="chartDiv3" style="width: 100%; height: 300px;"></div>
-    <h1>Save a Life!</h1>
+    <div id="chartDiv4" style="width: 100%; height: 300px;"></div>
+    <h1>Kidney Impairement Biomarkers</h1>
 </body>
 <script src="https://code.jscharting.com/latest/jscharting.js"></script> 
 <script> 
@@ -41,7 +42,16 @@
     .catch(function (error){
         console.log(error)
     });
+
+    JSC.fetch("../testfile.json")    
+    .then(response => response.json() )   
+    .then( function(json) {let series4=jsonToSeries4(json);
+        renderChart4(series4);})    
+    .catch(function (error){
+        console.log(error)
+    });
     
+
     function jsonToSeries(data){
        
         console.log(data);
@@ -79,11 +89,24 @@
             ];
     }
 
+    function jsonToSeries4(data){
+        //const CreatinineFactor = 'creatinine';
+        //let dataAsJson3 = JSC.csv2Json(text);
+        let p004 = [];
+    
+        data.forEach(function (row){
+                p004.push({x: row.testDate, y: row.bun});
+        });
+            return[
+                {name: 'This Patient', points: p004},
+            ];
+    }
+
  function renderChart(series){
      JSC.Chart('chartDiv',{
-        title_label_text: 'Creatinine values as Pathogenesis for Ischemic Stroke',
+        title_label_text: 'Creatinine Serum Monitoring to Prevent Adverse Events',
     annotations: [{
-        label_text: 'Source: Biomean! Save a life!',
+        label_text: 'Source: Kidney Impairment Biomarkers',
         position: 'bottom center'
     }],
     legend_visible: false,
@@ -95,9 +118,9 @@
  }   
  function renderChart2(series2){
      JSC.Chart("chartDiv2",{
-        title_label_text: 'eGFR values as Pathogenesis for Ischemic Stroke',
+        title_label_text: 'eGFR Monitoring to Prevent Adverse Events',
     annotations: [{
-        label_text: 'Source: Biomean! Save a life!',
+        label_text: 'Source: Kidney Impairment Biomarkers',
         position: 'bottom center'
     }],
     legend_visible: false,
@@ -109,9 +132,9 @@
  } 
  function renderChart3(series3){
      JSC.Chart('chartDiv3',{
-        title_label_text: 'Glucose values as Pathogenesis for Ischemic Stroke',
+        title_label_text: 'Glucose Monitoring to Prevent Adverse Events',
     annotations: [{
-        label_text: 'Source: Biomean! Save a life!',
+        label_text: 'Source: Kidney Impairment Biomarkers',
         position: 'bottom center'
     }],
     legend_visible: false,
@@ -121,5 +144,20 @@
     series: series3
      });
  } 
+ function renderChart4(series4){
+     JSC.Chart('chartDiv4',{
+        title_label_text: 'BUN Monitoring to Prevent Adverse Events',
+    annotations: [{
+        label_text: 'Source: Kidney Impairment Biomarkers',
+        position: 'bottom center'
+    }],
+    legend_visible: false,
+    xAxis_crosshair_enabled: true,
+    defaultSeries_firstPoint_label_text: '<b>%seriesName</b>',
+    defaultPoint_tooltip: '%seriesName <b>%yValue</b> mg/dl',
+    series: series4
+     });
+ } 
+
   </script> 
  </html>

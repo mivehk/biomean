@@ -57,7 +57,7 @@ export const getClusters = (req,res) =>{
 		res.render("layout",{ clu: cluster, template: "index"});
 		//res.redirect('/')
 		//res.sendFile(path.join( __dirname , '/../../views/pages/index.ejs'))
-	});
+	})
 };
 
 /* global  */
@@ -81,6 +81,7 @@ export const addNewCluster = (req,res) =>{
 					
 					const newBMPCluster2 = new BMPCluster(req.body);
 					newBMPCluster2.patientID = results[0]._id;
+					newBMPCluster2.atrialFibrillation=results[0].atrialFibrillation;
 					console.log(results);
 					newBMPCluster2.save(
 						res.redirect("/")
@@ -119,15 +120,15 @@ export const addNewCluster = (req,res) =>{
 							
 								//res.json(cluster)
 							res.redirect("/");
-						});
+						}); 
 	           		 //}	
 
 	        //}
 		//)	
-            	} 
+            	}  
 				else { 
-					req.body.atrialFibrillation = false ;
-					console.log("patient without AF post getting started");
+					//req.body.atrialFibrillation = false ;
+					//console.log("patient without AF post getting started");
 					let new2Cluster = new Cluster(req.body);
 					let new2BMPCluster = new BMPCluster(req.body);
 					new2BMPCluster.patientID = new2Cluster._id ;

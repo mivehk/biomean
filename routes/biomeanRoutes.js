@@ -1,4 +1,4 @@
-import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster , showchartClusters } from "../src/controllers/biomeanController.js";
+import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster , showchartClusters, downloadDEIdentified } from "../src/controllers/biomeanController.js";
 //import mongoose from "mongoose";
 //import ClusterSchema  from "../models/biomeanModel";
 //import vsCluster from '../server';
@@ -92,6 +92,18 @@ const routes = (app) => {
 
 		.post();
 	
+	app.route("/download/:clusterid")
+		.get((req,res,err,next)=>{
+			if(err){
+				res.send(err);
+			}
+			console.log(`Request Type: ${req.method}`);
+			console.log(`Request from: ${req.originalUrl}`);
+			console.log(`Updating this ${req.params.clusterid}`);
+			//res.download('./ddd.json');
+			//res.setHeader("Content-Disposition","attachement; ./ddd.json");
+			next();
+		}, downloadDEIdentified);	
 	
 
 	app.route("/")

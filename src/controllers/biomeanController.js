@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 import {PatientsSchema , BMPSchema}  from "../models/biomeanModel.js";
-import json2csv from "json2csv";
+//import json2csv from "json2csv";
 import fs from "fs";
+//import { retrieveEJSON } from "mongodb/lib/core/utils";
+
 
 //import path from "path";
 
@@ -28,6 +30,9 @@ export const showchartClusters = (req,res) =>{
 					BMPCluster.find({'patientID': pati[0].patientID},(err , clast) =>{
             		//let csv = json2csv(clast,['_id','documenNumber','testDate','eGfr','glucose','creatinine','creatinineMicromole','created_date','patientID']);
             		let data = JSON.stringify(clast , null, 2);
+					//use this for module to show user json string examples
+					//let patt= JSON.parse(data,null,2);
+					//console.log(patt);
 					fs.writeFile('./public/testfile.json',data,function(err){
 						if(err){
 							res.send(err);
@@ -44,6 +49,51 @@ export const showchartClusters = (req,res) =>{
     ) 
 }
 
+export const downloadDEIdentified = (req , res) =>{
+
+	BMPCluster.find({_id: req.params.clusterid}, (err, saram)=>{
+			if(err){
+				console.log('error');
+				return;
+			}
+			//console.log(saram);
+			BMPCluster.find({'patientID': saram[0].patientID},(err, javab) =>{if(err){
+					console.log('error');
+					return;
+				}
+					let datum= JSON.stringify(javab, null,2);
+					res.attachment('./public/ddd.json');
+					res.setHeader('Content-Disposition','attachment; ./public/ddd.json');
+			
+					//var w = fs.createWriteStream('./public/ddd.json');
+					fs.writeFile('./public/ddd.json', datum,(err)=>{if(err){
+							console.log('error while writing a json file');
+							return;
+						}else{
+					//res.attachment('./public/ddd.json');
+			    	//var r = fs.createReadStream('./public/ddd.json');
+					//res.setHeader('Content-Disposition','attachment; ./public/ddd.json');
+					//r.close();
+					//res.redirect("/");
+						res.download('./public/ddd.json', (err)=>{ if(err){
+							console.log('download error')
+							}		
+						})		
+					};
+				});
+					//console.log(javab);
+					//console.log(datum);
+					//var w = fs.createWriteStream('./public/ddd.json');
+					//var r = fs.createReadStream('./public/ddd.json');		  
+					////res.setHeader('Content-Disposition','attachement; ddd.json');
+					////res.attachment('./public/ddd.json'); 
+					//r.close();
+			
+			console.log('DeIdentified ran successfully');
+			//res.redirect("/");
+		})
+	})
+}
 
 
 export const getClusters = (req,res) =>{

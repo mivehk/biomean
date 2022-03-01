@@ -98,17 +98,32 @@ export const downloadDEIdentified = (req , res) =>{
 
 export const getClusters = (req,res) =>{
     
-	BMPCluster.find ({}, (err, cluster) => {
+	BMPCluster.find ({patientID: req.params.clusterid}, (err, cluster) => {
 		if (err) {
 			res.send(err);
 		}
 		//res.json(cluster);
 		//res.render('layout/index')
-		res.render("layout",{ clu: cluster, template: "index"});
+		res.render("pages",{ clu: cluster, template: "index"});
 		//res.redirect('/')
 		//res.sendFile(path.join( __dirname , '/../../views/pages/index.ejs'))
 	})
 };
+
+export const getPatients = (req,res) =>{
+    
+	Cluster.find ({}, (err, cluster) => {
+		if (err) {
+			res.send(err);
+		}
+		//res.json(cluster);
+		//res.render('layout/index')
+		res.render("layout",{ clu: cluster, template: "pidaf"});
+		//res.redirect('/')
+		//res.sendFile(path.join( __dirname , '/../../views/pages/index.ejs'))
+	})
+};
+
 
 /* global  */
 
@@ -214,9 +229,24 @@ export const getClusterWithID = (req,res) =>{
 		//res.render("layout",{ clusterout: cluster ,clusterid: req.params.clusterid, template: "index2" });
 		//res.send(cluster);
 		//res.render("/layout/index2");
-		res.render("layout",{ clu2: cluster, template:"delete"});
+		res.render("delete",{ clu2: cluster, template:"delete"});
 	});
 };
+
+export const getpatientWithID = (req,res) =>{
+    
+	BMPCluster.findById( {patientID:req.params.clusterid}, (err, cluster) => {
+		if (err) {
+			res.send(err);
+		}
+		//res.redirect("/cluster/:clusterID");
+		//res.render("layout",{ clusterout: cluster ,clusterid: req.params.clusterid, template: "index2" });
+		//res.send(cluster);
+		//res.render("/layout/index2");
+		res.render("layout",{ clu2: cluster, template:"index"});
+	});
+};
+
 
 export const updateCluster = (req,res) => {      
     
@@ -226,14 +256,28 @@ export const updateCluster = (req,res) => {
 		if (err) {
 			res.send(err);
 		}
-		res.render("layout",{ uclu: Cluster, template:"update"});
+		res.render("pages/update.ejs",{uclu: Cluster, template:"update"});
 	}
 	);
 };
 
+export const confirmDeleteCluster = (req,res) =>{      
+    
+	//let clus = Number( req.params._id);
+	//res.redirect("/cluster/:_id");
+	//console.log(clusterid);
+	console.log( req.params.clusterid);
+	BMPCluster.findById( {_id:req.params.clusterid} , (err, cluster) =>{
+		if(err){
+			res.send(err);
+		}
+		//res.render("layout",{ clusterout : cluster ,template:"clusterpage" }); 
+		//res.send(clus)
+		res.render("pages/delete.ejs",{clu2: cluster, template:"delete"});
+	});
+};
 
-
-export const deleteCluster = (req,res) =>{      
+export const deletingCluster = (req,res) =>{      
     
 	//let clus = Number( req.params._id);
 	//res.redirect("/cluster/:_id");

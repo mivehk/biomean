@@ -1,5 +1,15 @@
- 
-  <section class="ugly-u"> 
+<!DOCTYPE html>
+<html lang="us">
+<head>
+<meta charset="utf-8"/>
+<title>Kidney Impairment Biomarkers</title> 
+<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+</head>
+<body>
+  <page-form class="fields">
+    <a class="update"  href="/" > Back to Main Page </a > 
+</page-form>
+   <section class="ugly-u"> 
      <div class="fields-u">      
       <label>Patient's Name is hidden </label><input type='text' name='patientName' id='patientName'></input><br/><label class="oldval">Old Value=  </label><%= uclu.patientName %><br/> 
       <div class="cID"><%= uclu._id %></div>  
@@ -10,7 +20,7 @@
       <lable>BUN(mg/dL): </lable><input type="number" name="bun" id="bun"><br/><label class="oldval">Old Value=  </label><%=  uclu.bun %></input><br/> 
       <input type="hidden" id="creatinine" name="creatinine"></input><br/>
       <input type="hidden" id="creatinineMicromole" name="creatinineMicromole"></input> <br/>
-       <svg  
+       <svg class="bahooshtar" 
      class= <% if (uclu.atrialFibrillation == true ){ %> "atrialFibrillation is-fav" <%} else {%> "atrialFibrillation" <%} %>  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34"> 
          <path d="M12 9.229c.234-1.12 1.547-6.229 5.382-6.229 2.22 0 4.618 1.551 4.618 5.003 0 3.907-3.627 8.47-10 12.629-6.373-4.159-10-8.722-10-12.629 0-3.484 2.369-5.005 4.577-5.005 3.923 0 5.145 5.126 5.423 6.231zm-12-1.226c0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-7.962-9.648-9.028-12-3.737-2.338-5.262-12-4.27-12 3.737z" 
           /> 
@@ -22,5 +32,8 @@
      </BMP-form>
   
     
-</section>   
+</section> 
+</body>
+ 
+  
 

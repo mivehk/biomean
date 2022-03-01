@@ -1,4 +1,4 @@
-import { addNewCluster , getClusters , getClusterWithID , updateCluster , deleteCluster , showchartClusters, downloadDEIdentified } from "../src/controllers/biomeanController.js";
+import { addNewCluster , getClusters ,getPatients, getpatientWithID, confirmDeleteCluster ,getClusterWithID , updateCluster , showchartClusters, downloadDEIdentified, deletingCluster } from "../src/controllers/biomeanController.js";
 //import mongoose from "mongoose";
 //import ClusterSchema  from "../models/biomeanModel";
 //import vsCluster from '../server';
@@ -55,8 +55,22 @@ const routes = (app) => {
 			console.log (`Request from : ${ req.originalUrl}`);
 			console.log( "deleting this selected clusterid");
 			next();
-		}, deleteCluster)
+		}, confirmDeleteCluster)
 
+		app.route("/pages/:clusterid")
+	
+		.get((req,res ,err,next) => {
+			if (err) {
+				res.send(err);
+			}
+			console.log(`Request type: ${req.method}`);
+			console.log (`Request from : ${ req.originalUrl}`);
+			console.log("Hello BMI World!");
+		
+			next();
+		},getClusters )
+
+		.post()
 		
 	
 	app.route("/delete/:clusterid")
@@ -76,7 +90,9 @@ const routes = (app) => {
 			//res.render("layout",{ clusterout: cluster ,template: "clusterpage" });
 			//res.sendFile(path.join(__dirname ,"./views/layout/clusterpage.ejs"));
 			next();
-		},deleteCluster );
+		},confirmDeleteCluster )
+		.post(deletingCluster)
+		
 
 	app.route("/update/:clusterid")
 		.get((req,res,err,next) =>{
@@ -116,7 +132,7 @@ const routes = (app) => {
 			//console.log(`detail: ${req.body.details}`);
 			next();
 			//res.render('layout')
-		} ,getClusters) 
+		} ,getPatients) 
 	//addNewCluster
 	// .get((req,res) => {
 	//res.render('layout',{ pageTitle: 'Welcome', template: 'home'})

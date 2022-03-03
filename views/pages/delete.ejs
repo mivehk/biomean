@@ -5,9 +5,6 @@
 <title>Kidney Impairment Biomarkers</title> 
 <link rel="stylesheet" type="text/css" href="/css/index.css"/>
 </head>
-<page-form class="fields">
-      <a class="update"  href="/" > Back to Main Page </a > 
-  </page-form>
 <body>
      <section class="ugly"> 
      <div class="fields">      
@@ -27,14 +24,15 @@
           /> 
           </svg> </div>     
         
-    <BMP-form method="post" action="/layout/<%= clu2._id%>">
+    <BMP-form method="post" action="" >
              <a class="update"  href="/" > Back to Main Page </a > 
       <!--<script type="text/javascript" src="./../../server2.js" defer></script>-->
             <!--<input type="hidden" name="_method" value="delete"/>-->   
-            <a  id="dele" class="delete" href="/delete/<%= clu2._id%>" > Surely Delete </a>   
+          <a class="delete" href="/deleted/<%= clu2._id %>" > Surely Delete </a>  
     <!--<BMP-form2 method="post" action="./../../server.js"> -->
-            <!--<button  id="upda" class="update" type="submit" > Update </button>  -->  
-      </BMP-form>  
+           <button type="submit" id="submit"> Delete </button>
+           <input type="submit" value="submit"> </br>   
+    </BMP-form>  
     <!--</BMP-form> -->   
 </section>    
 </body>

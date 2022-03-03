@@ -266,7 +266,7 @@ export const confirmDeleteCluster = (req,res) =>{
 	//let clus = Number( req.params._id);
 	//res.redirect("/cluster/:_id");
 	//console.log(clusterid);
-	console.log( req.params.clusterid);
+	//////////console.log( req.params.clusterid);
 	BMPCluster.findById( {_id:req.params.clusterid} , (err, cluster) =>{
 		if(err){
 			res.send(err);
@@ -282,10 +282,11 @@ export const deletingCluster = (req,res) =>{
 	//let clus = Number( req.params._id);
 	//res.redirect("/cluster/:_id");
 	//console.log(clusterid);
-	console.log( req.params.clusterid);
-	BMPCluster.deleteOne( {_id:req.params.clusterid} , (err, cluster) =>{
+	
+	BMPCluster.deleteOne( {_id:req.params.clusterid} , (err) =>{
 		if(err){
-			res.send(err);
+			//res.send(err);
+			console.log( req.params.clusterid);
 		}
 		//res.render("layout",{ clusterout : cluster ,template:"clusterpage" }); 
 		//res.send(clus)

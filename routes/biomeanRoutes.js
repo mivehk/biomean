@@ -8,27 +8,29 @@ const routes = (app) => {
 
 	app.route("/showchart/:clusterid")
 	
-	.get((req,res ,err,next) => {
-		if (err) {
-			res.send(err);
-		}
-		console.log(`Request type: ${req.method}`);
-		console.log (`Request from : ${ req.originalUrl}`);
-		console.log("show chart!");
-		next();
-	},showchartClusters )
+		.get((req,res,next) => {
+			try{
+			console.log(`Request type: ${req.method}`);
+			console.log (`Request from : ${ req.originalUrl}`);
+			console.log("show chart!");
+			next()	
+			} catch (error){
+				return next(error)
+			}
+		
+		}, showchartClusters  )
 
-	.post((req,res,err,next) =>{
-		if(err){
-			res.send(err);
-		}
-		console.log(`Request type: ${req.method}`);
-		console.log (`Request from : ${ req.originalUrl}`);
-		console.log( "show charts for selected clusterid");
-		next();
-	}, showchartClusters )
+		.post((req,res,next) =>{
+			if(err){
+				res.send(err);
+			}
+			console.log(`Request type: ${req.method}`);
+			console.log (`Request from : ${ req.originalUrl}`);
+			console.log( "show charts for selected clusterid");
+			next();
+		}, showchartClusters )
 
-	app.route("/layout/:clusterid")
+/* 	app.route("/layout/:clusterid")
 	
 		.get((req,res ,err,next) => {
 			if (err) {
@@ -55,9 +57,9 @@ const routes = (app) => {
 			console.log (`Request from : ${ req.originalUrl}`);
 			console.log( "deleting this selected clusterid");
 			next();
-		}, confirmDeleteCluster)
+		}, confirmDeleteCluster) */
 
-		app.route("/pages/:clusterid")
+	app.route("/pages/:clusterid")
 	
 		.get((req,res ,err,next) => {
 			if (err) {
@@ -66,32 +68,43 @@ const routes = (app) => {
 			console.log(`Request type: ${req.method}`);
 			console.log (`Request from : ${ req.originalUrl}`);
 			console.log("Hello BMI World!");
-		
 			next();
-		},getClusters )
+		}, getClusters )
 
 		.post()
 		
 	
-	app.route("/delete/:clusterid")
+	app.route('/deleted/:clusterid')
 
-		.get((req,res ,err,next) => {
-			if (err) {
-				res.send(err);
+	    .get(( req,res,next) => {
+			try{
+				console.log(`Request type: ${req.method}`);
+				console.log (`Request from : ${ req.originalUrl}`);
+				console.log("Why World?");
+				next()
+			}catch (error){
+				console.log(error);
 			}
+		}, deletingCluster )
+	
+	app.route('/delete/:clusterid')
+		
+		.get((req,res,next) => {
+			/* 	if (err) {
+			res.send(err);
+			} */
+			try{
 			console.log(`Request type: ${req.method}`);
 			console.log (`Request from : ${ req.originalUrl}`);
-			console.log("Hello World!");
-			//clusterid = :_clusterid
-			//const clus1 = await getClusterWithID
-		    //res.render("layout",{ clusterout: clus1 ,template: "clusterpage" });
-			//console.log("yes, sending cluster data to cluster page");
-			//res.redirect("/cluster/:_id");
-			//res.render("layout",{ clusterout: cluster ,template: "clusterpage" });
-			//res.sendFile(path.join(__dirname ,"./views/layout/clusterpage.ejs"));
+			console.log("Hell(o) World!");
 			next();
-		},confirmDeleteCluster )
-		.post(deletingCluster)
+			} catch(error){
+				return next(error)
+			}
+			
+		 }, confirmDeleteCluster )
+		
+		
 		
 
 	app.route("/update/:clusterid")

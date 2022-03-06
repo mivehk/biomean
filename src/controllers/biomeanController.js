@@ -29,7 +29,36 @@ export const showchartClusters = (req,res) =>{
 			//console.log(pati[0].patientID);
 					BMPCluster.find({'patientID': pati[0].patientID},(err , clast) =>{
             		//let csv = json2csv(clast,['_id','documenNumber','testDate','eGfr','glucose','creatinine','creatinineMicromole','created_date','patientID']);
-            		let data = JSON.stringify(clast , null, 2);
+            		
+					//var clast2=[]
+
+					//function sortt(clast){
+				/* 			for(let j=1; j<clast.length ; clast++){
+							var sarmin =[]
+							sarmin= clast[j]
+							//console.log(sarmin)
+							var i = j
+							while( i>0 && clast[i-1].testDate > clast[i].testDate){
+								clast[i] = clast[i-1]
+								i--
+							}
+							
+							//clast2=clast
+							clast.splice(i,1,sarmin)
+							//console.log(clast)
+						} */
+						//console.log(clast)
+						//return clast
+					//}
+					//clast2.splice(clast.length,0,clast[sar-1])
+					//var clast2=[]
+					clast.sort(function(a,b){
+						return a.testDate - b.testDate
+					})
+					//clast2=clast
+	
+					let data = JSON.stringify(clast, null, 2);
+					console.log(data)
 					//use this for module to show user json string examples
 					//let patt= JSON.parse(data,null,2);
 					//console.log(patt);

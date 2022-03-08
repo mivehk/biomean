@@ -18,21 +18,34 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 .w{
-/* color:#69f;*/
+/* color:#69f;
+border-color:#328038*/
 text-align: center;
-color:#ffab23;
-border:chartreuse;
+color:#cecb16;
+border:#69f;
 border-style: inset;
 border-width: 5px ;
-/*display: inline-block*/;
-
-/*border-color:#ffab23*/
+display: inline-flex;
+margin:6px 12px 6px 12px;
+flex-wrap: wrap;
+width:500px;
+height:400px;
+padding: 10px ;
+margin:15px 12px 6px 15px;
  }
-p#start { color: #ffab23;
-font-size: larger;
-    border-style: solid;
-border-color: chartreuse;
+p#start {
+  /*border:5px solid chartreuse;
+  border-style: solid;
+border-color: chartreuse;*/
+  width:100%; 
+color: #eeeb2b;
+position:sticky;
+top: 5px;
+left: 300px;
+font-size: 35px; 
 text-align: center;
+margin:15px 12px 6px 15px;
+
 }
 input[type='button']{
 width:60px;

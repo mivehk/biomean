@@ -32,13 +32,15 @@ export const showchartClusters = (req,res) =>{
             		
 					//var clast2=[]
 
-					//function sortt(clast){
-				/* 			for(let j=1; j<clast.length ; clast++){
-							var sarmin =[]
+					//function sorting(clast){
+						var sarmin =[]
+						
+							for(let j=1; j<clast.length ; clast++){
+							
 							sarmin= clast[j]
 							//console.log(sarmin)
-							var i = j
-							while( i>0 && clast[i-1].testDate > clast[i].testDate){
+							let i = j
+							while(i>0 && clast[i-1].testDate > clast[i].testDate){
 								clast[i] = clast[i-1]
 								i--
 							}
@@ -46,15 +48,17 @@ export const showchartClusters = (req,res) =>{
 							//clast2=clast
 							clast.splice(i,1,sarmin)
 							//console.log(clast)
-						} */
-						//console.log(clast)
+						}
+						console.log(clast)
 						//return clast
 					//}
+					//clast2 = sorting(clast)
+					//console.log(clast)
 					//clast2.splice(clast.length,0,clast[sar-1])
 					//var clast2=[]
-					clast.sort(function(a,b){
+				/* 	clast.sort(function(a,b){
 						return a.testDate - b.testDate
-					})
+					}) */
 					//clast2=clast
 	
 					let data = JSON.stringify(clast, null, 2);
@@ -62,11 +66,9 @@ export const showchartClusters = (req,res) =>{
 					//use this for module to show user json string examples
 					//let patt= JSON.parse(data,null,2);
 					//console.log(patt);
-					fs.writeFile('./public/testfile.json',data,function(err){
-						if(err){
-							res.send(err);
-							console.log('json creation killed pet');
-						}}
+					fs.writeFile('./public/testfile.json',data,(error)=>{
+						try{console.log("Hi naKhoda")}catch(error){return(error)}
+					}
             		)
             		//console.log(clast);
 					//console.log(data);

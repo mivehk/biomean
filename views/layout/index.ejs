@@ -2,47 +2,61 @@
 <html lang="us">
 <head>
 <meta charset="utf-8"/>
-<title>Kidney Impairment Biomarkers</title> 
+<title>Kidney Biomarkers</title> 
 <link rel="stylesheet" type="text/css" href="/css/index.css"/>
 </head>
 <body>
-    <p id='start'>This page collects values for Metabolic Panels </p>
-    <!--<script src='./index.js' defer ></script> -->
-    <form class='w' method="post" action="" > 
-        <ul>
-        <li>
-        Patient's Name: <input type='text' name='patientName' id='patientName' /><br/>
-        <!--<div *ngIf="form.get('cuName').hasError('pattern')" class="error"> CustomerName is mandatory</div>-->
-        </li>
-        <li>
-        A Numeric value will be generated Automatically to disguise Patient's Name <input type="hidden" name="documenNumber" id="documenNumber" /><br/>
-        </li>
-        <li>
-        Date of test: <input type="date" name="testDate" id="testDate"  /><br/>
-        </li>
-        <li>
-        eGFR: <input type="number" step="0.01" name="eGfr" id="eGfr" /><br/>
-        </li>
-        <li>
-        glucose <input type="number" name="glucose" id="glucose" /><br/>    
-        </li>
-        <li>
-        Creatinine (mg/dl): <input type="number" step="0.01" name="creatinine" id="creatinine" /><br/>
-        </li>
-        <li>
-        Blood Urea Nitrogen <input type="number" name="bun" id="bun" /><br/>    
-        </li>
-        <li>
-        History of Atrial Fibrillation: <input type="checkbox" name="atrialFibrillation" id="atrialFibrillation"/><br/>	
-        </li>
-        <li>
-         <input type="hidden" name="creatinineMicromole" id="creatinineMicromole" /><br/>
-        </li>
-        <li>
-        <button type="submit" id="submit" > Save </button><br/>	
-        </li>     
-    </ul>
-    </form><br/>
+    <section>
+        <h1>
+            <p id='start'>Kidney Biomarkers Monitoring </p>   
+        </h1>
+             <!--<script src='./index.js' defer ></script> --> 
+    </section>
+    <section>
+        <span>
+            <form class="w" method="post" action="" > 
+                <ul>
+                    <li>
+                    Patient's Name: <input type='text' name='patientName' id='patientName' /><br/>
+                    <!--<div *ngIf="form.get('cuName').hasError('pattern')" class="error"> CustomerName is mandatory</div>-->
+                    </li>
+                    <li>
+                    A Numeric value will be generated Automatically to disguise Patient's Name <input type="hidden" name="documenNumber" id="documenNumber" /><br/>
+                    </li>
+                    <li>
+                    Date of test: <input type="date" name="testDate" id="testDate"  /><br/>
+                    </li>
+                    <li>
+                    eGFR: <input type="number" step="0.01" name="eGfr" id="eGfr" /><br/>
+                    </li>
+                    <li>
+                    glucose <input type="number" name="glucose" id="glucose" /><br/>    
+                    </li>
+                    <li>
+                    Creatinine (mg/dl): <input type="number" step="0.01" name="creatinine" id="creatinine" /><br/>
+                    </li>
+                    <li>
+                    Blood Urea Nitrogen <input type="number" name="bun" id="bun" /><br/>    
+                    </li>
+                    <li>
+                    History of Atrial Fibrillation: <input type="checkbox" name="atrialFibrillation" id="atrialFibrillation"/><br/>	
+                    </li>
+                    <li>
+                    <input type="hidden" name="creatinineMicromole" id="creatinineMicromole" /><br/>
+                    </li>
+                    <li>
+                    <button type="submit" id="submit" > Save </button><br/>	
+                    </li>     
+                </ul>
+            </form><br/>
+        </span>
+        <span class="w"> 
+            <h1>What is The Goal of Application?</h1>
+            <p>It Provides Cue for Decision Support Systems in Form of Graphs or Deidentified Raw Data for Statistical Analysis</p>
+            <p></p>
+            <p></p>
+        </span>
+    </section>
     <%- include(`../pages/pidaf.ejs`); %>
 </body>
 </html>

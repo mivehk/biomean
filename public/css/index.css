@@ -27,8 +27,8 @@ border-style: inset;
 border-width: 5px ;
 display: inline-flex;
 flex-wrap: wrap;
-width:500px;
-height:500px;
+width:400px;
+height:400px;
 padding: 5px ;
 margin:15px 12px 6px 15px;
  }
@@ -37,7 +37,7 @@ p#start {
   /*border:5px solid chartreuse;
   border-style: solid;
 border-color: chartreuse;*/
-  width:100%; 
+  width:98%; 
 color: #eeeb2b;
 position:sticky;
 top: 5px;
@@ -63,8 +63,8 @@ list-style-type: none;
 }
 ul li {
 margin: 10px 0 10px 0;
-font-size: 20px; 
-text-align: left;
+font-size: 15px; 
+text-align: center;
 }
 .error {
 color: #d93a3e;

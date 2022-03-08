@@ -12,16 +12,17 @@
         </h1>
              <!--<script src='./index.js' defer ></script> --> 
     </section>
-    <section>
-        <span>
-            <form class="w" method="post" action="" > 
+    <section>       
+        <span class="w">
+            <h2>Manual Data Entry</h2>
+            <form  method="post" action="" > 
                 <ul>
                     <li>
                     Patient's Name: <input type='text' name='patientName' id='patientName' /><br/>
                     <!--<div *ngIf="form.get('cuName').hasError('pattern')" class="error"> CustomerName is mandatory</div>-->
                     </li>
                     <li>
-                    A Numeric value will be generated Automatically to disguise Patient's Name <input type="hidden" name="documenNumber" id="documenNumber" /><br/>
+                    * A Numeric Identifier will be Generated Automatically to Disguise Patient's Name * <input type="hidden" name="documenNumber" id="documenNumber" /><br/>
                     </li>
                     <li>
                     Date of test: <input type="date" name="testDate" id="testDate"  /><br/>
@@ -51,10 +52,10 @@
             </form><br/>
         </span>
         <span class="w"> 
-            <h1>What is The Goal of Application?</h1>
-            <p>It Provides Cue for Decision Support Systems in Form of Graphs or Deidentified Raw Data for Statistical Analysis</p>
-            <p></p>
-            <p></p>
+            <h2>What is The Purpose of This Application?</h2>
+            <p id="Comments">It Provides Cue for Actions in Decision Support Systems in Form of Graphs or Deidentified Raw Data for Statistical Analysis</p>
+            <p id="Comments">Click on Each Patient's Result to View Graphs or Download Data</p>
+            <p id="Comments"></p>
         </span>
     </section>
     <%- include(`../pages/pidaf.ejs`); %>

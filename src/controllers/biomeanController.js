@@ -33,7 +33,7 @@ export const showchartClusters = (req,res) =>{
 					//var clast2=[]
 
 					//function sorting(clast){
-						var sarmin =[]
+					/* 	var sarmin =[]
 						
 							for(let j=1; j<clast.length ; clast++){
 							
@@ -49,16 +49,16 @@ export const showchartClusters = (req,res) =>{
 							clast.splice(i,1,sarmin)
 							//console.log(clast)
 						}
-						console.log(clast)
+						console.log(clast) */
 						//return clast
 					//}
 					//clast2 = sorting(clast)
 					//console.log(clast)
 					//clast2.splice(clast.length,0,clast[sar-1])
 					//var clast2=[]
-				/* 	clast.sort(function(a,b){
+					clast.sort(function(a,b){
 						return a.testDate - b.testDate
-					}) */
+					})
 					//clast2=clast
 	
 					let data = JSON.stringify(clast, null, 2);

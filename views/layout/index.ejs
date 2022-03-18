@@ -40,7 +40,7 @@
                     Blood Urea Nitrogen <input type="number" name="bun" id="bun" /><br/>    
                     </li>
                     <li>
-                    History of Atrial Fibrillation: <input type="checkbox" name="atrialFibrillation" id="atrialFibrillation"/><br/>	
+                     <label for="atrialFibrillation">History of Atrial Fibrillation:</label><input type="checkbox" name="atrialFibrillation" id="atrialFibrillation" value="true" /><br/>	                        
                     </li>
                     <li>
                     <input type="hidden" name="creatinineMicromole" id="creatinineMicromole" /><br/>
@@ -55,9 +55,12 @@
             <h2>What is The Purpose of This Application?</h2>
             <p id="Comments">It Provides Cue for Actions in Decision Support Systems in Form of Graphs or Deidentified Raw Data for Statistical Analysis</p>
             <p id="Comments">Click on Each Patient's Result to View Graphs or Download Data</p>
-            <p id="Comments"></p>
+            <p id="warning"> </p>
         </span>
     </section>
-    <%- include(`../pages/pidaf.ejs`); %>
+    <!---<script> const tcb=document.querySelector('#atrialFibrillation').value="true"; console.log(tcb) </script>  --->
+    <script> const tcb=document.querySelector('#atrialFibrillation');  if(tcb.checked=='false'){tcb.value=`false`}; console.log(tcb.value);</script>
+    <!---<script>var tcb =document.getElementById('atrialFibrillation'); console.log(tcb);if(tcb.checked=='true'){tcb.value='1';} </script> --->
+    <%- include('../pages/pidaf.ejs'); -%>
 </body>
 </html>

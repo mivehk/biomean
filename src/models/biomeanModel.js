@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 
 //const Schema = mongoose.Schema;
 
+
 export const PatientsSchema = new mongoose.Schema ({
 
 	patientName:{
@@ -11,7 +12,8 @@ export const PatientsSchema = new mongoose.Schema ({
 	},
 	atrialFibrillation:{
 		type: Boolean,
-		default: false
+		default: false,
+		//set: setAF
 	}
 	/* ,
 	BMPinstances:{
@@ -36,7 +38,7 @@ export const BMPSchema = new mongoose.Schema ({
 	} ,
 	testDate:{
 		type: Date, 
-		required: "Enter date test was taken"
+		required: "Enter the date this test results was captured"
 	} ,
 	eGfr:{
 		type: Number,
@@ -60,7 +62,8 @@ export const BMPSchema = new mongoose.Schema ({
 	} ,
 	atrialFibrillation:{
 		type: Boolean,
-		default: false
+		default: false,
+		//set: setAF
 	},		
 	creatinineMicromole: {
 		type: Number ,
@@ -90,4 +93,8 @@ function setPatientCode(patientName,patientNumber){
 	let pcode2= this.patientNumber;
 	
 	return Array.from(pcode,pcode2);
+} */
+
+/* function setAF(atrialFibrillation){
+	return false;
 } */

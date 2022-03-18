@@ -161,7 +161,7 @@ export const getPatients = (req,res) =>{
 export const addNewCluster = (req,res) =>{
 
 	//if (req.body.patientName){
-		Cluster.find({'patientName': req.body.patientName},
+		Cluster.find({'patientName': req.body.patientName },
 			function dupName(err, results){
 				if (err){
 					logger.debug("Error from dupName check");
@@ -170,6 +170,7 @@ export const addNewCluster = (req,res) =>{
 					res.json(err);
 					return;
 			    }
+				console.log(results)
 				if (results.length > 0){
 					//res.status(400);
 					//res.json({error: "Patient name aleady exists."});
@@ -192,39 +193,10 @@ export const addNewCluster = (req,res) =>{
 				    );
 					return;
 		        }   	
-			    else if (req.body.atrialFibrillation =true){
-				        
-		                console.log("patient with AF post getting started");
-						let newBMPCluster = new BMPCluster(req.body);
-						let newCluster = new Cluster(req.body);
-		                 //}
-						newBMPCluster.patientID = newCluster._id ;
-						
-						newCluster.save((err, cluster) => {
-			            	if (err) {
-				            	res.send(err);
-				                console.log("error from saving patient cluster")
-			                }   
-								//res.json(cluster)
-								//res.redirect("/");
-						});
-						//newCluster.BMPinstances.push(newBMPCluster._id);
-						newBMPCluster.save((err, cluster) => {
-							if (err) {
-							res.send(err);
-							} 
-							
-								//res.json(cluster)
-							res.redirect("/");
-						}); 
-	           		 //}	
-
-	        //}
-		//)	
-            	}  
-				else { 
+				else if(results.length==0 && req.body.atrialFibrillation != true) { 
 					//req.body.atrialFibrillation = false ;
-					//console.log("patient without AF post getting started");
+					console.log("patient without AF post getting started");
+					console.log(req.body.atrialFibrillation);
 					let new2Cluster = new Cluster(req.body);
 					let new2BMPCluster = new BMPCluster(req.body);
 					new2BMPCluster.patientID = new2Cluster._id ;
@@ -244,7 +216,36 @@ export const addNewCluster = (req,res) =>{
 			//res.json(cluster)
 			            res.redirect("/");
 		            });
-	            }; 
+	            }  
+				else if (results.length==0 && req.body.atrialFibrillation ==true){
+				        
+					console.log("patient with AF post getting started");
+					console.log(req.body.atrialFibrillation);
+					let newBMPCluster = new BMPCluster(req.body);
+					let newCluster = new Cluster(req.body);
+					 //}
+					newBMPCluster.patientID = newCluster._id ;
+					
+					newCluster.save((err, cluster) => {
+						if (err) {
+							res.send(err);
+							console.log("error from saving patient cluster")
+						}   
+							//res.json(cluster)
+							//res.redirect("/");
+					});
+					//newCluster.BMPinstances.push(newBMPCluster._id);
+					newBMPCluster.save((err, cluster) => {
+						if (err) {
+						res.send(err);
+						} 
+						
+							//res.json(cluster)
+						res.redirect("/");
+					}); 
+			    }   
+
+
             }
 		)
 	};

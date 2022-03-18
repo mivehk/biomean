@@ -28,7 +28,7 @@ border-width: 5px ;
 display: inline-flex;
 flex-wrap: wrap;
 width:400px;
-height:400px;
+height:450px;
 padding: 5px ;
 margin:15px 12px 6px 15px;
  }
@@ -97,6 +97,15 @@ font-size: 20px;
 text-align: center;
 margin:15px 12px 6px 15px;
 }
+p#warning {
+
+  color: #d6460d;
+  position:sticky;
+  top: 5px;
+  font-size: 20px; 
+  text-align: center;
+  margin:15px 12px 6px 15px;
+  }
 
 .ugly {
 display: inline-flex;
@@ -179,7 +188,7 @@ display: inline ;
 position:relative;
 width: 24px;
 height: 24px;
-fill: #bdc2c5;
+fill: #62a555;
 cursor: pointer;
 }
 .atrialFibrillation.is-fav {

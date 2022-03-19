@@ -11,8 +11,8 @@ export const PatientsSchema = new mongoose.Schema ({
 		required: "Enter patient's name"
 	},
 	atrialFibrillation:{
-		type: Boolean,
-		default: false,
+		type: String,
+		default: "Not Detected",
 		//set: setAF
 	}
 	/* ,
@@ -61,8 +61,8 @@ export const BMPSchema = new mongoose.Schema ({
 		required: "Enter value of blood urea nitrogen"
 	} ,
 	atrialFibrillation:{
-		type: Boolean,
-		default: false,
+		type: String,
+		default: "Not Detected",
 		//set: setAF
 	},		
 	creatinineMicromole: {

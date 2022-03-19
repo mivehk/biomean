@@ -3,81 +3,39 @@ import {PatientsSchema , BMPSchema}  from "../models/biomeanModel.js";
 //import json2csv from "json2csv";
 import fs from "fs";
 //import { retrieveEJSON } from "mongodb/lib/core/utils";
-
-
 //import path from "path";
 
 const Cluster = mongoose.model("Cluster" , PatientsSchema, 'patientDocs');
 const BMPCluster = mongoose.model("BMPCluster", BMPSchema ,'BMPDocs');
 
-/* export const showchartClusters = (req,res) =>{
-    
-	BMPCluster.find ({}, (err, cluster) => {
-		if (err) {
-			res.send(err);
-		}
-		res.render("showchart.ejs");
-	});
-}; */
 
 export const showchartClusters = (req,res) =>{
-		BMPCluster.find({_id: req.params.clusterid},(err ,pati)=>{
+	BMPCluster.find({_id: req.params.clusterid},(err ,pati)=>{
 			if(err){
 				res.send(err);
 			}
-			//apparetnly fs module consider project folder as the current . folder 
+					
 			//console.log(pati[0].patientID);
-					BMPCluster.find({'patientID': pati[0].patientID},(err , clast) =>{
-            		//let csv = json2csv(clast,['_id','documenNumber','testDate','eGfr','glucose','creatinine','creatinineMicromole','created_date','patientID']);
+		BMPCluster.find({'patientID': pati[0].patientID},(err , clast) =>{
+           	//let csv = json2csv(clast,['_id','documenNumber','testDate','eGfr','glucose','creatinine','creatinineMicromole','created_date','patientID']);
             		
-					//var clast2=[]
-
-					//function sorting(clast){
-					/* 	var sarmin =[]
-						
-							for(let j=1; j<clast.length ; clast++){
-							
-							sarmin= clast[j]
-							//console.log(sarmin)
-							let i = j
-							while(i>0 && clast[i-1].testDate > clast[i].testDate){
-								clast[i] = clast[i-1]
-								i--
-							}
-							
-							//clast2=clast
-							clast.splice(i,1,sarmin)
-							//console.log(clast)
-						}
-						console.log(clast) */
-						//return clast
-					//}
-					//clast2 = sorting(clast)
-					//console.log(clast)
-					//clast2.splice(clast.length,0,clast[sar-1])
-					//var clast2=[]
-					clast.sort(function(a,b){
-						return a.testDate - b.testDate
-					})
-					//clast2=clast
+			clast.sort(function(a,b){
+				return a.testDate - b.testDate
+			})
 	
-					let data = JSON.stringify(clast, null, 2);
-					console.log(data)
-					//use this for module to show user json string examples
-					//let patt= JSON.parse(data,null,2);
-					//console.log(patt);
-					fs.writeFile('./public/testfile.json',data,(error)=>{
-						try{console.log("Hi naKhoda")}catch(error){return(error)}
-					}
-            		)
-            		//console.log(clast);
-					//console.log(data);
-					res.render("showchart.ejs");
-            		//return;
-        			} 
-	                )
-	    } 
-    ) 
+			let data = JSON.stringify(clast, null, 2);
+			console.log(data)
+			//apparetnly fs module consider project folder as the current . folder 
+			fs.writeFile('./public/testfile.json',data,(error)=>{
+				try{console.log("Hi naKhoda")}catch(error){return(error)}
+			})
+            //console.log(clast);
+			//console.log(data);
+			res.render("showchart.ejs");
+            //return;
+        		 
+		})
+	}) 
 }
 
 export const downloadDEIdentified = (req , res) =>{
@@ -155,12 +113,10 @@ export const getPatients = (req,res) =>{
 	})
 };
 
-
 /* global  */
 
 export const addNewCluster = (req,res) =>{
 
-	//if (req.body.patientName){
 		Cluster.find({'patientName': req.body.patientName },
 			function dupName(err, results){
 				if (err){
@@ -170,10 +126,8 @@ export const addNewCluster = (req,res) =>{
 					res.json(err);
 					return;
 			    }
-				console.log(results)
+		    console.log(`${results.length}`)
 				if (results.length > 0){
-					//res.status(400);
-					//res.json({error: "Patient name aleady exists."});
 					console.log("Patient name already exists");
 					
 					const newBMPCluster2 = new BMPCluster(req.body);
@@ -187,39 +141,38 @@ export const addNewCluster = (req,res) =>{
 						if(err){
 							res.send(err);
 						}
-						//results[0].BMPinstances.push(newBMPCluster2._id);
-						//Cluster.save();
 					}						
 				    );
 					return;
-		        }   	
-				else if(results.length==0 && req.body.atrialFibrillation != true) { 
+		        } 
+			console.log(`${results.length}`)	  	
+				if(results.length==0 && req.body.atrialFibrillation != "Abnormal Heart Rhythm") { 
 					//req.body.atrialFibrillation = false ;
 					console.log("patient without AF post getting started");
+					console.log(`result of name returned ${results.length}`)
 					console.log(req.body.atrialFibrillation);
 					let new2Cluster = new Cluster(req.body);
 					let new2BMPCluster = new BMPCluster(req.body);
 					new2BMPCluster.patientID = new2Cluster._id ;
 
-					new2Cluster.save((err, cluster) => {
-						if (err) {
-							res.send(err);
-			            } 
-			//res.json(cluster)
-			//res.redirect("/");
-		            });
-					//new2Cluster.BMPinstances.push(new2BMPCluster._id);
-					new2BMPCluster.save((err, cluster) => {
-						if (err) {
-							res.send(err);
-						} 
-			//res.json(cluster)
-			            res.redirect("/");
+						new2Cluster.save((err, cluster) => {
+							if (err) {
+								res.send(err);
+			            	} 
+		
+		            	});	
+						new2BMPCluster.save((err, cluster) => {
+							if (err) {
+								res.send(err);
+							} 
+		
+			        	res.redirect("/");
 		            });
 	            }  
-				else if (results.length==0 && req.body.atrialFibrillation ==true){
+				else if (results.length==0 && req.body.atrialFibrillation =="Abnormal Heart Rhythm"){
 				        
 					console.log("patient with AF post getting started");
+					console.log(`result of name returned ${results.length}`)
 					console.log(req.body.atrialFibrillation);
 					let newBMPCluster = new BMPCluster(req.body);
 					let newCluster = new Cluster(req.body);
@@ -231,16 +184,12 @@ export const addNewCluster = (req,res) =>{
 							res.send(err);
 							console.log("error from saving patient cluster")
 						}   
-							//res.json(cluster)
-							//res.redirect("/");
 					});
-					//newCluster.BMPinstances.push(newBMPCluster._id);
+				
 					newBMPCluster.save((err, cluster) => {
 						if (err) {
 						res.send(err);
 						} 
-						
-							//res.json(cluster)
 						res.redirect("/");
 					}); 
 			    }   
@@ -257,10 +206,6 @@ export const getClusterWithID = (req,res) =>{
 		if (err) {
 			res.send(err);
 		}
-		//res.redirect("/cluster/:clusterID");
-		//res.render("layout",{ clusterout: cluster ,clusterid: req.params.clusterid, template: "index2" });
-		//res.send(cluster);
-		//res.render("/layout/index2");
 		res.render("delete",{ clu2: cluster, template:"delete"});
 	});
 };
@@ -271,10 +216,6 @@ export const getpatientWithID = (req,res) =>{
 		if (err) {
 			res.send(err);
 		}
-		//res.redirect("/cluster/:clusterID");
-		//res.render("layout",{ clusterout: cluster ,clusterid: req.params.clusterid, template: "index2" });
-		//res.send(cluster);
-		//res.render("/layout/index2");
 		res.render("layout",{ clu2: cluster, template:"index"});
 	});
 };
@@ -295,49 +236,23 @@ export const updateCluster = (req,res) => {
 
 export const confirmDeleteCluster = (req,res) =>{      
     
-	//let clus = Number( req.params._id);
-	//res.redirect("/cluster/:_id");
-	//console.log(clusterid);
-	//////////console.log( req.params.clusterid);
 	BMPCluster.findById( {_id:req.params.clusterid} , (err, cluster) =>{
 		if(err){
 			res.send(err);
 		}
-		//res.render("layout",{ clusterout : cluster ,template:"clusterpage" }); 
-		//res.send(clus)
 		res.render("pages/delete.ejs",{clu2: cluster, template:"delete"});
 	});
 };
 
 export const deletingCluster = (req,res) =>{      
     
-	//let clus = Number( req.params._id);
-	//res.redirect("/cluster/:_id");
-	//console.log(clusterid);
-	
 	BMPCluster.deleteOne( {_id:req.params.clusterid} , (err) =>{
 		if(err){
 			//res.send(err);
 			console.log( req.params.clusterid);
 		}
-		//res.render("layout",{ clusterout : cluster ,template:"clusterpage" }); 
-		//res.send(clus)
 		res.redirect("/");
 	});
 };
     
-
-
-// Cluster.remove({ _id: req.params._id } ,(err, cluster ) => {
-// 	if (err) {
-// 		res.send(err);
-//     }
-       
-        
-// 	//res.json({message: 'successfully deleted cluster'});
-        
-//     res.send(clus);
-		
-// });
- 
 

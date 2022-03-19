@@ -40,7 +40,7 @@
                     Blood Urea Nitrogen <input type="number" name="bun" id="bun" /><br/>    
                     </li>
                     <li>
-                     <label for="atrialFibrillation">History of Atrial Fibrillation:</label><input type="checkbox" name="atrialFibrillation" id="atrialFibrillation" value="true" /><br/>	                        
+                     <label for="atrialFibrillation">History of Atrial Fibrillation:</label><input type="checkbox" name="atrialFibrillation" id="atrialFibrillation" value="Abnormal Heart Rhythm" /><br/>	                        
                     </li>
                     <li>
                     <input type="hidden" name="creatinineMicromole" id="creatinineMicromole" /><br/>
@@ -59,8 +59,9 @@
         </span>
     </section>
     <!---<script> const tcb=document.querySelector('#atrialFibrillation').value="true"; console.log(tcb) </script>  --->
-    <script> const tcb=document.querySelector('#atrialFibrillation');  if(tcb.checked=='false'){tcb.value=`false`}; console.log(tcb.value);</script>
+    <script> const tcb=document.querySelector('#atrialFibrillation');  if(tcb.checked=="false"){tcb.value="Not Recorded"; console.log(`${tcb.value}`);}</script> 
     <!---<script>var tcb =document.getElementById('atrialFibrillation'); console.log(tcb);if(tcb.checked=='true'){tcb.value='1';} </script> --->
     <%- include('../pages/pidaf.ejs'); -%>
+
 </body>
 </html>

@@ -107,7 +107,7 @@ export const getPatients = (req,res) =>{
 		}
 		//res.json(cluster);
 		//res.render('layout/index')
-		res.render("layout",{ clu: cluster, template: "pidaf"});
+		res.render("layout/index.ejs" ,{ clu: cluster, clu3:" ", template: "pidaf"});
 		//res.redirect('/')
 		//res.sendFile(path.join( __dirname , '/../../views/pages/index.ejs'))
 	})
@@ -128,14 +128,15 @@ export const addNewCluster = (req,res) =>{
 			    }
 		    console.log(`${results.length}`)
 				if (results.length > 0){
-					console.log("Patient name already exists");
 					
+					var nadell = "A Patient with This Name Already Exists, Click on \"Show Test Results\" "
+                    console.log("Patient name already exists");
 					const newBMPCluster2 = new BMPCluster(req.body);
 					newBMPCluster2.patientID = results[0]._id;
 					newBMPCluster2.atrialFibrillation=results[0].atrialFibrillation;
 					console.log(results);
 					newBMPCluster2.save(
-						res.redirect("/")
+						res.render("layout/index.ejs", {clu: results, clu3: nadell, template: "pidafE" } ) 
 					);					
 					Cluster.findById({_id:results[0]._id },(err,fj)=>{
 						if(err){
@@ -199,27 +200,6 @@ export const addNewCluster = (req,res) =>{
 		)
 	};
 		
-
-export const getClusterWithID = (req,res) =>{
-    
-	BMPCluster.findById( {_id:req.params.clusterid}, (err, cluster) => {
-		if (err) {
-			res.send(err);
-		}
-		res.render("delete",{ clu2: cluster, template:"delete"});
-	});
-};
-
-export const getpatientWithID = (req,res) =>{
-    
-	BMPCluster.findById( {patientID:req.params.clusterid}, (err, cluster) => {
-		if (err) {
-			res.send(err);
-		}
-		res.render("layout",{ clu2: cluster, template:"index"});
-	});
-};
-
 
 export const updateCluster = (req,res) => {      
     

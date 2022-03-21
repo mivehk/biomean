@@ -53,15 +53,15 @@
         </span>
         <span class="w"> 
             <h2>What is The Purpose of This Application?</h2>
-            <p id="Comments">It Provides Cue for Actions in Decision Support Systems in Form of Graphs or Deidentified Raw Data for Statistical Analysis</p>
+            <p id="Comments">It Saves BMP Laboratory Results with Analytical Graphs and Provides Deidentified Raw Data for Statistical Analysis</p>
             <p id="Comments">Click on Each Patient's Result to View Graphs or Download Data</p>
-            <p id="warning"> </p>
+            <p id="warning01">  <%= clu3 %> </p>
         </span>
     </section>
     <!---<script> const tcb=document.querySelector('#atrialFibrillation').value="true"; console.log(tcb) </script>  --->
     <script> const tcb=document.querySelector('#atrialFibrillation');  if(tcb.checked=="false"){tcb.value="Not Recorded"; console.log(`${tcb.value}`);}</script> 
     <!---<script>var tcb =document.getElementById('atrialFibrillation'); console.log(tcb);if(tcb.checked=='true'){tcb.value='1';} </script> --->
-    <%- include('../pages/pidaf.ejs'); -%>
+    <%- include(`../pages/${template}`); -%>
 
 </body>
 </html>

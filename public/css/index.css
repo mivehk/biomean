@@ -97,9 +97,10 @@ font-size: 20px;
 text-align: center;
 margin:15px 12px 6px 15px;
 }
-p#warning {
+p#warning01 {
 
-  color: #d6460d;
+  color: #0d43d6;
+  background-color: #eeeb2b;
   position:sticky;
   top: 5px;
   font-size: 20px; 
@@ -114,7 +115,7 @@ align-content: space-between;
 /*display: flex; */
 flex-direction: row;
 width: 300px;
-height: 400px;
+height: 320px;
 border: 2px solid;
 background-color: var(--box-bg , #580909);
 padding: 6px;

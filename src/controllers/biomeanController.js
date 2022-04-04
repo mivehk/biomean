@@ -88,12 +88,15 @@ export const downloadDEIdentified = (req , res) =>{
 export const getClusters = (req,res) =>{
     
 	BMPCluster.find ({patientID: req.params.clusterid}, (err, cluster) => {
-		if (err) {
-			res.send(err);
+		if (cluster.length==0) {
+			//res.render("layout/index.ejs",{ clu: cluster,clu3:"All Test Results For This Patient Are Deleted", template:"pidaf"});
+			res.redirect("/")
+		}else{
+			res.render("pages",{ clu: cluster, template: "index"});
 		}
 		//res.json(cluster);
 		//res.render('layout/index')
-		res.render("pages",{ clu: cluster, template: "index"});
+		
 		//res.redirect('/')
 		//res.sendFile(path.join( __dirname , '/../../views/pages/index.ejs'))
 	})
